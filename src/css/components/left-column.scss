@@ -1,4 +1,4 @@
-.left-column-component {
+#app .left-column-component {
     padding-top: 80px;
     padding-right: calc(2 * #{$spacer});
 
@@ -11,6 +11,14 @@
     }
 
     & > .contacts-container > .contact {
+        &:hover {
+            .badge {
+                transform: scale(1.1);
+                background-position-y: 60%;
+                box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 100%);
+            }
+        }
+
         .badge {
             border: none;
             background-color: var(--theme-color);
@@ -20,8 +28,12 @@
             width: 2.2em;
             padding-top: 0;
             display: inline-block;
-            box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%);
-            animation: gradient calc(2 *#{$base-animation-time}) ease-in-out 1;
+            background: linear-gradient(0deg, var(--theme-color) 0%, var(--theme-color) 34%, rgba(0, 0, 0, 0%) 200%);
+
+            transition: all calc(0.25 * #{$base-animation-time}) ease-in-out;
+            background-position-y: 100%;
+            background-size: 100% 300%;
+            box-shadow: 0px 2px 8px -4px rgb(0 0 0 / 80%);
 
             & > svg {
                 height: 2.2em;

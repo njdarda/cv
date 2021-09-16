@@ -30,7 +30,7 @@ import ListComponent from '@/components/list.vue'
         ListComponent,
     },
 })
-export default class HelloWorld extends Vue {
+export default class LeftColumnComponent extends Vue {
     @Prop() contacts!: Record<string, unknown>
     @Prop() sections!: Record<string, unknown>
 }
