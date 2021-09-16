@@ -1,0 +1,47 @@
+.header-component {
+    height: 100%;
+    perspective: 1000px;
+
+    img.photo {
+        width: 290px;
+        border-radius: 50%;
+        border: 10px solid var(--theme-color);
+        position: absolute;
+        z-index: 1;
+        top: calc(1.5 * #{$spacer});
+        background-color: $white;
+        box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%);
+        animation: gradient calc(2*#{$base-animation-time}) ease-in-out 1;
+    }
+
+    div.header-bar {
+        transform: rotateX(2deg) translateY(-50%) scale(1.05);
+        transform-origin: 50% 50% 0px;
+
+        margin-left: 100px;
+        width: calc(100% - 100px);
+        color: white;
+        position: relative;
+        top: 60%;
+        text-align: right;
+        padding: $spacer;
+        background-color: var(--theme-color);
+        background: linear-gradient(0deg, var(--theme-color) 0%, var(--theme-color) 34%, rgba(0, 0, 0, 0%) 100%);
+        background-size: 100% 300%;
+        background-position-y: 100%;
+        box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%);
+        animation: gradient calc(2*#{$base-animation-time}) ease-in-out 1;
+
+        & > p.name {
+            font-size: 1.5em;
+            text-transform: uppercase;
+        }
+
+        a {
+            font-size: 1em;
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+}

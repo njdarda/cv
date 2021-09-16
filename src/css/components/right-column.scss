@@ -1,0 +1,17 @@
+.right-column-component {
+    padding-left: calc(1.5 * #{$spacer});
+
+    .position,
+    .course {
+        display: inline-block;
+        color: hsl(var(--theme-color-h), var(--theme-color-s), calc(0.65 * var(--theme-color-l)));
+    }
+
+    .time {
+        color: $gray-600;
+    }
+
+    .skills-list {
+        column-count: 2;
+    }
+}
