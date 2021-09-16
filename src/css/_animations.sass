@@ -1,0 +1,48 @@
+$base-animation-time: 0.8s
+
+#app *
+    transition: background-color calc(2 *#{$base-animation-time}) ease-out, border-color calc(2 *#{$base-animation-time}) ease-out, color calc(2 *#{$base-animation-time}) ease-out
+
+.section-name,
+.subsection-name
+    display: flex
+    width: 100%
+    animation: section-max-width $base-animation-time step-end
+
+    & > h2,
+    & > h3
+        white-space: nowrap
+        display: inline-block
+        animation: section-underline-fill-init $base-animation-time ease-in-out 1
+
+.section-name::after,
+.subsection-name::after
+    content: ''
+    width: 100%
+    transform-origin: left
+    animation: section-underline-fill calc(2 *#{$base-animation-time}) ease-in-out 1
+
+// Keyframe animations
+@keyframes section-underline-fill
+    0%
+        transform: scaleX(0)
+
+    50%
+        transform: scaleX(0)
+
+    100%
+        transform: scaleX(1)
+
+@keyframes section-max-width
+    0%
+        max-width: fit-content
+
+    100%
+        max-width: 100%
+
+@keyframes section-underline-fill-init
+    0%
+        width: 0
+
+    100%
+        width: 100%

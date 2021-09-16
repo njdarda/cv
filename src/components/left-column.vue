@@ -2,8 +2,12 @@
 .left-column-component
     .contacts-container
         .contact(v-for='contact in contacts')
-            b-badge.mr-2.mb-2.align-middle
-                b-icon(:icon='contact.icon')
+            a(v-if='contact.link', :href='contact.link')
+                b-badge.mr-2.mb-2.align-middle
+                    b-icon(:icon='contact.icon')
+            template(v-else)
+                b-badge.mr-2.mb-2.align-middle
+                    b-icon(:icon='contact.icon')
             h3 {{ contact.value }}
 
     template(v-for='section in sections')

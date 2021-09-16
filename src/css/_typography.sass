@@ -1,0 +1,52 @@
+h1, h2, h3, h4, h5, h6
+    font-family: 'Franklin Gothic Medium'
+
+h1
+    font-size: 3.2em
+
+h2
+    font-size: 2em
+
+h3
+    font-size: 1.35em
+
+h4
+    font-size: 1.3em
+    color: hsl(var(--theme-color-h), var(--theme-color-s), calc(0.4 * var(--theme-color-l)))
+
+h1, h2, h3
+    text-transform: uppercase
+
+h3, h4, h5, h6
+    margin-bottom: 0.1rem
+
+.text
+    font-size: 1.25em
+
+.professional
+    font-weight: bold
+
+.language-name
+    display: inline-block
+    margin-right: 50%
+    width: 0px
+    white-space: nowrap
+
+.item-note
+    font-size: 0.9em
+    color: $gray-600
+
+.section-name > h2,
+.section-name::after
+    border-bottom: 10px solid var(--theme-color)
+    padding-bottom: calc(0.4 * #{$spacer})
+    margin-bottom: 0.5rem
+
+.subsection-name > h3,
+.subsection-name::after
+    border-bottom: 4px solid hsla(var(--theme-color-h), var(--theme-color-s), calc(1.25 * var(--theme-color-l)))
+    padding-bottom: calc(0.1 * #{$spacer})
+    margin-bottom: 0.1rem
+
+.section-name:not(:first-child)
+    margin-top: calc(2.25 * #{$spacer})
