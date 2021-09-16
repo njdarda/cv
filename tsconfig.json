@@ -3,6 +3,7 @@
         "noImplicitAny": false,
         "allowJs": true,
         "checkJs": true,
+        "resolveJsonModule": true,
 
         "target": "esnext",
         "module": "esnext",
