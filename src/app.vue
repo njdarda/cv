@@ -1,37 +1,42 @@
 <template lang="pug">
-#app
-    img(alt='Vue logo', src='./assets/logo.png')
-    HelloWorldComponent(ref='HelloWorldComponent', msg='Welcome to Your Vue.js + TypeScript App')
+#app.container
+    CssVariablesComponent(:cssVariables='cssVariables')
+    .header
+        HeaderComponent(:header='cvData.header')
+    .left-column
+        LeftColumnComponent(:sections='cvData.leftColumn', :contacts='cvData.contacts')
+    .right-column
+        RightColumnComponent(:sections='cvData.rightColumn')
+    footer#footer Footer
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 // Components
-import HelloWorldComponent from './components/hello-world.vue'
+import HeaderComponent from '@/components/header.vue'
+import LeftColumnComponent from '@/components/left-column.vue'
+import RightColumnComponent from '@/components/right-column.vue'
+import CssVariablesComponent from '@/components/css-variables.vue'
 // Types
-import { TestType } from './types/types'
 // Libraries and Helpers
+// Data
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import jwData from '@/data/jw.json'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import njdData from '@/data/njd.json'
 
 @Component({
     components: {
-        HelloWorldComponent,
+        HeaderComponent,
+        LeftColumnComponent,
+        RightColumnComponent,
+        CssVariablesComponent,
     },
 })
 export default class App extends Vue {
-    $refs!: {
-        HelloWorldComponent: HelloWorldComponent
-    }
-
-    testProp!: TestType
-
-    // Hooks
-    created(): void {
-        this.helloWorld()
-    }
-
-    // Methods
-    helloWorld(): void {
-        console.log('Hello World!')
+    cvData = jwData
+    cssVariables = {
+        'theme-color': this.cvData.themeColor,
     }
 }
 </script>
