@@ -54,7 +54,13 @@
 
             & > .shine {
                 transition: all calc(0.5 * #{$base-animation-time}) ease-in-out;
-                background: linear-gradient(0deg, transparent 0%, transparent 34%, rgba(255, 255, 255, 100%) 80%);
+                background: linear-gradient(
+                0deg,
+                transparent 0%,
+                transparent 34%,
+                rgba(255,255,255,10%) 36%,
+                $white 80%
+            );
                 background-position-y: 100%;
                 background-size: 100% 300%;
             }
@@ -69,8 +75,14 @@
             text-align: right;
             padding: $spacer;
             background-color: var(--theme-color);
-            border-radius: 1.5em;
-            background: linear-gradient(0deg, var(--theme-color) 0%, var(--theme-color) 34%, rgba(0, 0, 0, 0%) 100%);
+            border-radius: 0.5em;
+            background: linear-gradient(
+                0deg,
+                var(--theme-color) 0%,
+                var(--theme-color) 32%,
+                hsla(var(--theme-color-h), var(--theme-color-s), var(--theme-color-l), 0.90) 36%,
+                rgba(0, 0, 0, 0%) 100%
+            );
 
             transition: transform calc(0.5 * #{$base-animation-time}) ease-in-out,
                 box-shadow calc(0.5 * #{$base-animation-time}),

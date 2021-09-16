@@ -1,13 +1,15 @@
 <template lang="pug">
-#app.container
-    CssVariablesComponent(:cssVariables='cssVariables')
-    .header
-        HeaderComponent(:header='cvData.header')
-    .left-column
-        LeftColumnComponent(:sections='cvData.leftColumn', :contacts='cvData.contacts')
-    .right-column
-        RightColumnComponent(:sections='cvData.rightColumn')
-    footer#footer Footer
+#app
+    .container
+        CssVariablesComponent(:cssVariables='cssVariables')
+        .header
+            HeaderComponent(:header='cvData.header')
+        .left-column
+            LeftColumnComponent(:sections='cvData.leftColumn', :contacts='cvData.contacts')
+        .right-column
+            RightColumnComponent(:sections='cvData.rightColumn')
+        footer#footer Footer
+    .background
 </template>
 
 <script lang="ts">

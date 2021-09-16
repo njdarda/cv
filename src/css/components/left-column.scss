@@ -3,7 +3,8 @@
     padding-right: calc(2 * #{$spacer});
 
     & > .contacts-container {
-        margin-right: -100px;
+        white-space: nowrap;
+        will-change: transform;
     }
 
     ul {
