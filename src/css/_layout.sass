@@ -16,9 +16,17 @@
     .left-column
         grid-area: left-column
 
+        & > .column-component
+            padding-top: 80px
+            padding-right: calc(2 * #{$spacer})
+
     .right-column
         grid-area: right-column
         z-index: 1
+
+        & > .column-component
+            padding-left: calc(1.5 * #{$spacer})
+
 
 @media screen
     .background
