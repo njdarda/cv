@@ -5,20 +5,21 @@
         height: 290px
         perspective: 256px
 
-        &:hover,
-        &.init-animation
-            div.photo
-                transform: rotateX(0.5deg) scale(1.05)
-                box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
+        @media screen
+            &:hover,
+            &.init-animation
+                div.photo
+                    transform: rotateX(0.5deg) scale(1.05)
+                    box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
 
-                & > .shine
+                    & > .shine
+                        background-position-y: 80%
+
+                div.header-bar
                     background-position-y: 80%
 
-            div.header-bar
-                background-position-y: 80%
-
-                transform: rotateX(0.5deg) scale(1.05)
-                box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
+                    transform: rotateX(0.5deg) scale(1.05)
+                    box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
 
         div.photo
             width: 290px

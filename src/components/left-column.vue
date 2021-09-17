@@ -3,7 +3,7 @@
     .contacts-container
         .contact(v-for='contact in contacts')
             a(v-if='contact.link', :href='contact.link')
-                b-badge.mr-2.mb-2.align-middle
+                b-badge.has-link.mr-2.mb-2.align-middle
                     b-icon(:icon='contact.icon')
             template(v-else)
                 b-badge.mr-2.mb-2.align-middle
