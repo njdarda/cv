@@ -1,5 +1,5 @@
 <template lang="pug">
-ul
+ul.no-indent
     template(v-for='(item, index) in list')
         div(v-if='item.break', :class='"new-" + item.break')
         li.list-item

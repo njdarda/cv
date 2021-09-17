@@ -5,9 +5,9 @@
         .header
             HeaderComponent(:header='cvData.header')
         .left-column
-            ColumnComponent(:sections='cvData.leftColumn', :contacts='cvData.contacts')
+            ColumnComponent(:sections='getSections("leftColumn")')
         .right-column
-            ColumnComponent(:sections='cvData.rightColumn')
+            ColumnComponent(:sections='getSections("rightColumn")')
         footer#footer Footer
     .background
 </template>
@@ -21,7 +21,7 @@ import CssVariablesComponent from '@/components/css-variables.vue'
 // Types
 // Libraries and Helpers
 // Data
-import njdData from '@/data/njd.json'
+import cvData from '@/data/njd.json'
 
 @Component({
     components: {
@@ -31,11 +31,23 @@ import njdData from '@/data/njd.json'
     },
 })
 export default class App extends Vue {
-    cvData = njdData
+    cvData = cvData
 
     cssVariables = {
         'theme-color': this.cvData.themeColor,
         photo: `url('${require('@/assets/' + this.cvData.header.photo)}')`,
+    }
+
+    // Methods
+    getSections(sectionGroup: string): unknown {
+        let sections: unknown[] = []
+        console.log(sectionGroup)
+        for (const sectionName of cvData.contentGroups[sectionGroup]) {
+            if (cvData.content[sectionName]) {
+                sections.push(cvData.content[sectionName])
+            }
+        }
+        return sections
     }
 }
 </script>
