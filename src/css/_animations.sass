@@ -1,19 +1,20 @@
-$base-animation-time: 0.8s
+$base-animation-time: var(--base-animation-time)
 
 @media screen
     .section-name,
     .subsection-name
         display: flex
-        width: 100%
 
-        animation: section-max-width $base-animation-time step-end 1 0.001s
+        max-width: fit-content
+        animation: section-max-width $base-animation-time step-end 1 forwards 0.2s
 
         & > h2,
         & > h3
             white-space: nowrap
             display: inline-block
 
-            animation: section-underline-fill-init $base-animation-time ease-in-out 1 0.001s
+            width: 0.1% //this is to prevent webpack form cutting the %
+            animation: section-underline-fill-init $base-animation-time ease-in-out 1 forwards 0.2s
 
     .section-name::after,
     .subsection-name::after
@@ -21,7 +22,8 @@ $base-animation-time: 0.8s
         width: 100%
         transform-origin: left
 
-        animation: section-underline-fill calc(2 * #{$base-animation-time}) ease-in-out 1 0.001s
+        transform: scaleX(0)
+        animation: section-underline-fill calc(2 * #{$base-animation-time}) ease-in-out 1 forwards 0.2s
 
 // Keyframe animations
 @keyframes section-underline-fill
@@ -39,8 +41,7 @@ $base-animation-time: 0.8s
         max-width: 100%
 
 @keyframes section-underline-fill-init
-    0%
-        width: 0
-
-    100%
+    99.9%
         width: 100%
+    100%
+        width: auto

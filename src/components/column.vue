@@ -63,13 +63,15 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 // Components
 import ListComponent from '@/components/list.vue'
+import { BBadge } from 'bootstrap-vue'
 
 @Component({
     components: {
         ListComponent,
+        BBadge,
     },
 })
-export default class LeftColumnComponent extends Vue {
+export default class ColumnComponent extends Vue {
     @Prop() contacts!: Record<string, unknown>
     @Prop() sections!: Record<string, unknown>
 }
