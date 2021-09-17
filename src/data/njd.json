@@ -1,0 +1,115 @@
+{
+    "themeColor": "#2682c3",
+    "header": {
+        "name": "Jędrzej Darda",
+        "photo": "logo.png",
+        "links": [
+            {
+                "type": "github",
+                "url": "https://github.com",
+                "path": "/njdarda"
+            }
+        ]
+    },
+    "contentGroups": {
+        "leftColumn": ["contacts"],
+        "rightColumn": ["technicalSkills"]
+    },
+    "content": {
+        "contacts": {
+            "contacts": [
+                {
+                    "name": "Location",
+                    "value": "Kraków",
+                    "icon": "geo-alt-fill"
+                },
+                {
+                    "name": "Phone",
+                    "value": "+48 609 888 864",
+                    "icon": "telephone-fill",
+                    "link": "tel:+48609888864"
+                },
+                {
+                    "name": "Email",
+                    "value": "njdarda@gmail.com",
+                    "icon": "envelope-fill",
+                    "link": "mailto:njdarda@gmail.com"
+                }
+            ]
+        },
+        "technicalSkills": {
+            "name": "Technical skills",
+            "list": [
+                {
+                    "name": "Programming languages and related technologies",
+                    "children": [
+                        {
+                            "name": "PHP [5.6, 7, excited for 8]",
+                            "children": [
+                                {
+                                    "name": "Symfony2, Symfony3",
+                                    "professional": true
+                                },
+                                { "name": "Prestashop", "professional": true },
+                                { "name": "Doctrine 2", "professional": true },
+                                { "name": "Propel", "professional": true },
+                                { "name": "Zend 2", "professional": true },
+                                { "name": "Smarty", "professional": true },
+                                { "name": "Twig", "professional": true },
+                                { "name": "XDebug", "professional": true },
+                                { "name": "Composer", "professional": true },
+                                { "name": "OPcache", "professional": true },
+                                { "name": "Resque (Redis)", "professional": true }
+                            ]
+                        },
+                        {
+                            "name": "JS [ES5, ES6]",
+                            "children": [
+                                {
+                                    "name": "vue2",
+                                    "children": ["vue-bootstrap"]
+                                },
+                                { "name": "jQuery", "professional": true },
+                                { "name": "NodeJS/npm", "professional": true, "children": ["express"] },
+                                { "name": "AngularJS 1.5", "professional": true },
+                                "ReactJS",
+                                "GSAP",
+                                "Mithril",
+                                { "name": "Gulp", "professional": true },
+                                "Webpack"
+                            ]
+                        },
+                        {
+                            "name": "Python",
+                            "children": ["asyncio", "sqlAlchemy, alembic", "Flask", "jinja"]
+                        },
+                        {
+                            "name": "SQL",
+                            "children": [
+                                { "name": "MySQL", "professional": true },
+                                { "name": "PostreSQL", "professional": true }
+                            ]
+                        },
+                        {
+                            "name": "HTML5",
+                            "children": ["jade/pug"]
+                        },
+                        {
+                            "name": "CSS3 (SASS, SCSS)",
+                            "children": [
+                                { "name": "Bootstrap 4", "professional": true },
+                                "Foundation",
+                                "Bourbon/Neat/Bitters/Refills",
+                                "Compass"
+                            ]
+                        },
+                        { "name": "Bash", "professional": true },
+                        "Markdown",
+                        "VBA",
+                        { "name": "WSDL", "professional": true }
+                    ]
+                }
+            ]
+        }
+    }
+}

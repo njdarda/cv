@@ -1,6 +1,10 @@
 .DS_Store
 node_modules
 /dist
+/src/assets/photos/*
+!/src/assets/photos/njd.*
+/src/data/*
+!/src/data/njd.json
 
 
 # local env files

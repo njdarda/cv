@@ -35,7 +35,7 @@ export default class App extends Vue {
 
     cssVariables = {
         'theme-color': this.cvData.themeColor,
-        photo: `url('${require('@/assets/' + this.cvData.header.photo)}')`,
+        photo: `url('${require('@/assets/photos/' + this.cvData.header.photo)}')`,
     }
 
     // Methods
