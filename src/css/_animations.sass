@@ -5,20 +5,23 @@ $base-animation-time: 0.8s
     .subsection-name
         display: flex
         width: 100%
-        animation: section-max-width $base-animation-time step-end
+
+        animation: section-max-width $base-animation-time step-end 1 0.001s
 
         & > h2,
         & > h3
             white-space: nowrap
             display: inline-block
-            animation: section-underline-fill-init $base-animation-time ease-in-out 1
+
+            animation: section-underline-fill-init $base-animation-time ease-in-out 1 0.001s
 
     .section-name::after,
     .subsection-name::after
         content: ''
         width: 100%
         transform-origin: left
-        animation: section-underline-fill calc(2 *#{$base-animation-time}) ease-in-out 1
+
+        animation: section-underline-fill calc(2 * #{$base-animation-time}) ease-in-out 1 0.001s
 
 // Keyframe animations
 @keyframes section-underline-fill

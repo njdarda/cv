@@ -21,7 +21,7 @@ import CssVariablesComponent from '@/components/css-variables.vue'
 // Types
 // Libraries and Helpers
 // Data
-import cvData from '@/data/njd.json'
+import cvData from '@/data/jw.json'
 
 @Component({
     components: {
@@ -32,16 +32,17 @@ import cvData from '@/data/njd.json'
 })
 export default class App extends Vue {
     cvData = cvData
+    cssVariables = {}
 
-    cssVariables = {
-        'theme-color': this.cvData.themeColor,
-        photo: `url('${require('@/assets/photos/' + this.cvData.header.photo)}')`,
+    // Hooks
+    created(): void {
+        this.cssVariables = this.cvData.cssVariables
+        this.cssVariables['photo'] = `url('${require('@/assets/photos/' + this.cvData.header.photo)}')`
     }
 
     // Methods
     getSections(sectionGroup: string): unknown {
         let sections: unknown[] = []
-        console.log(sectionGroup)
         for (const sectionName of cvData.contentGroups[sectionGroup]) {
             if (cvData.content[sectionName]) {
                 sections.push(cvData.content[sectionName])

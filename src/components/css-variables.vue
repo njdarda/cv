@@ -4,6 +4,7 @@ import { VNode } from 'vue'
 import { CreateElement } from 'vue/types/umd'
 // Libraries
 import Color from 'color'
+import { paramCase } from 'change-case'
 
 @Component
 export default class CssVariablesComponent extends Vue {
@@ -13,13 +14,14 @@ export default class CssVariablesComponent extends Vue {
         let css = ''
 
         for (const [key, value] of Object.entries(this.cssVariables)) {
-            css += `--${key}: ${value};`
+            let varName = '--' + paramCase(key)
+            css += `${varName}: ${value};`
 
-            if (key.endsWith('color')) {
+            if (varName.endsWith('color')) {
                 let color = Color(value)
-                css += `--${key}-h: ${Math.round(color.hue() * 100) / 100};`
-                css += `--${key}-s: ${Math.round(color.saturationl() * 100) / 100}%;`
-                css += `--${key}-l: ${Math.round(color.lightness() * 100) / 100}%;`
+                css += `${varName}-h: ${Math.round(color.hue() * 100) / 100};`
+                css += `${varName}-s: ${Math.round(color.saturationl() * 100) / 100}%;`
+                css += `${varName}-l: ${Math.round(color.lightness() * 100) / 100}%;`
             }
         }
 

@@ -1,4 +1,5 @@
 @use 'sass:color'
+@import fonts
 
 :root
     --theme-color: hsl(0, 0%, 100%)
@@ -8,8 +9,13 @@
 
     --photo: url('~@/assets/logo.png')
 
+    --font-family-base: 'Lora', 'Garamond', serif
+    --font-family-headings: 'Montserrat', sans-serif
+
+    --text-size: 1.20em
+
 $body-bg: white
-$font-family-base: 'Liberation Serif', 'Garamond'
+$font-family-base: var(--font-family-base)
 $font-size-base: 0.85rem
 $gray-900: #212529
 $body-color: $gray-900

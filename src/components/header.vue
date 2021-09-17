@@ -24,10 +24,12 @@ export default class HeaderComponent extends Vue {
     mounted(): void {
         let headerBox = this.$refs.headerBox as Element
 
-        headerBox.classList.add('init-animation')
+        setTimeout(() => {
+            headerBox.classList.add('init-animation')
+        }, 0)
         setTimeout(() => {
             headerBox.classList.remove('init-animation')
-        }, 500)
+        }, 1000)
     }
 }
 </script>

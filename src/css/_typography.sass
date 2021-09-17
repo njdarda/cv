@@ -1,5 +1,8 @@
+.text
+    font-size: var(--text-size)
+
 h1, h2, h3, h4, h5, h6
-    font-family: 'Franklin Gothic Medium'
+    font-family: var(--font-family-headings)
 
 h1
     font-size: 3.2em
@@ -12,16 +15,14 @@ h3
 
 h4
     font-size: 1.3em
-    color: hsl(var(--theme-color-h), var(--theme-color-s), calc(0.4 * var(--theme-color-l)))
+    line-height: 1.6
+    color: hsl(var(--theme-color-h), var(--theme-color-s), calc(0.6 * var(--theme-color-l)))
 
 h1, h2, h3
     text-transform: uppercase
 
 h3, h4, h5, h6
     margin-bottom: 0.1rem
-
-.text
-    font-size: 1.25em
 
 .professional
     font-weight: bold
