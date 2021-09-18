@@ -9,13 +9,15 @@ ul
                     |
                     |
                     span.item-note(v-if='item.note') {{ item.note }}
-                list-component.children-item(v-if='item.children', :list='item.children')
+                recursive-list.children-item(v-if='item.children', :list='item.children')
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
-@Component
+@Component({
+    name: 'recursive-list',
+})
 export default class ListComponent extends Vue {
     @Prop() list!: []
 }
