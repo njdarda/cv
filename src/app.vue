@@ -23,6 +23,8 @@ import CssVariablesComponent from '@/components/css-variables.vue'
 // Data
 import cvData from '@/data/jw.json'
 
+Component.registerHooks(['metaInfo'])
+
 @Component({
     components: {
         HeaderComponent,
@@ -43,6 +45,16 @@ export default class App extends Vue {
             parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000,
             this.getPrefersReducedMotion(),
         )
+    }
+
+    metaInfo(): Record<string, unknown> {
+        return {
+            title: `CV - ${cvData.header.name}`,
+            meta: [{ name: 'description', content: `${cvData.header.name}'s Curriculum vitae` }, { charset: 'utf-8' }],
+            htmlAttrs: {
+                lang: 'en',
+            },
+        }
     }
 
     // Methods

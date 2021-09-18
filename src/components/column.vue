@@ -65,12 +65,10 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 // Components
 import ListComponent from '@/components/list.vue'
-import { BBadge } from 'bootstrap-vue'
 
 @Component({
     components: {
         ListComponent,
-        BBadge,
     },
 })
 export default class ColumnComponent extends Vue {

@@ -1,12 +1,21 @@
 import Vue from 'vue'
 import App from './app.vue'
-import { IconsPlugin } from 'bootstrap-vue'
+import { BBadge, BIcon, BIconGeoAltFill, BIconTelephoneFill, BIconEnvelopeFill, BIconGithub } from 'bootstrap-vue'
 import VueSessionStorage from 'vue-sessionstorage'
+import VueMeta from 'vue-meta'
+
+Vue.component('BBadge', BBadge)
+Vue.component('BIcon', BIcon)
+Vue.component('BIconGeoAltFill', BIconGeoAltFill)
+Vue.component('BIconTelephoneFill', BIconTelephoneFill)
+Vue.component('BIconEnvelopeFill', BIconEnvelopeFill)
+Vue.component('BIconGithub', BIconGithub)
 
 Vue.config.productionTip = false
-
+Vue.use(VueMeta, {
+    refreshOnceOnNavigation: true,
+})
 Vue.use(VueSessionStorage)
-Vue.use(IconsPlugin)
 new Vue({
     render: (h) => h(App),
 }).$mount('#app')

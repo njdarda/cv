@@ -26,7 +26,7 @@ export default class HeaderComponent extends Vue {
 
         setTimeout(() => {
             headerWrapper.classList.add('init-animation')
-        }, 0)
+        }, 200)
         setTimeout(() => {
             headerWrapper.classList.remove('init-animation')
         }, 1000)
