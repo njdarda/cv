@@ -5,6 +5,9 @@ $print-margin: 1.6cm
     #footer
         display: none
 
+.new-section
+    break-after: column
+
 @media print
     $page-width: 210mm
     $page-height: 272mm
@@ -33,6 +36,7 @@ $print-margin: 1.6cm
     .new-section,
     .new-page
         page-break-after: always
+        break-before: column
 
     .new-page + *
         margin-top: $print-margin !important

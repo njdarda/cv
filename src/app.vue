@@ -3,7 +3,7 @@
     .container
         CssVariablesComponent(:cssVariables='cvData.cssVariables')
         .header
-            HeaderComponent(:header='cvData.header')
+            HeaderComponent(ref='headerComponent', :header='cvData.header')
         .left-column
             ColumnComponent(:sections='getSections("leftColumn")')
         .right-column
@@ -21,7 +21,7 @@ import CssVariablesComponent from '@/components/css-variables.vue'
 // Types
 // Libraries and Helpers
 // Data
-import cvData from '@/data/jw.json'
+import cvData from '@/data/njd.json'
 
 Component.registerHooks(['metaInfo'])
 
@@ -39,8 +39,10 @@ export default class App extends Vue {
     // Hooks
     created(): void {
         cvData.cssVariables['photo'] = `url('${require('@/assets/photos/' + this.cvData.header.photo)}')`
+    }
 
-        this.animateColors(
+    mounted(): void {
+        this.initAnimation(
             parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000,
             parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000,
             this.getPrefersReducedMotion(),
@@ -58,7 +60,7 @@ export default class App extends Vue {
     }
 
     // Methods
-    animateColors(baseAnimationTime: number, colorAnimationTime: number, reducedMotion = false): void {
+    initAnimation(baseAnimationTime: number, colorAnimationTime: number, reducedMotion = false): void {
         if (this.$session.get('lastThemeColorIndex') !== undefined) {
             this.themeColorIndex = this.$session.get('lastThemeColorIndex') as number
             this.setThemeColor()
@@ -73,6 +75,14 @@ export default class App extends Vue {
         if (this.cvData.themeColors.length < 2 || reducedMotion) {
             return
         }
+
+        let headerWrapper = (this.$refs.headerComponent as Vue).$refs.headerWrapper as Element
+        setTimeout(() => {
+            headerWrapper.classList.add('init-animation')
+        }, baseAnimationTime)
+        setTimeout(() => {
+            headerWrapper.classList.remove('init-animation')
+        }, 1.5 * baseAnimationTime)
 
         setTimeout(() => {
             colorAnimationTime *= 8

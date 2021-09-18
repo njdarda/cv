@@ -22,20 +22,21 @@
                     span {{ language.level }}
 
         template(v-else-if='section.list')
-            ListComponent.text(:list='section.list')
+            ListComponent.text(:list='section.list', :class='section.class')
 
         template(v-else-if='section.items', v-for='item in section.items')
             div(v-if='item.break', :class='"new-" + item.break')
+
             template(v-if='item.degree')
                 .subsection-name.mb-1
                     h3
                         span.position {{ item.course }}
-                        span
-                            |
-                            | • {{ item.place }}
+                        br
+                        | {{ item.place }}
                 h3.time {{ item.time }}
                 h4 {{ item.degree }}:
                 span.text {{ item.specialisation }}
+
             template(v-else-if='item.position')
                 .subsection-name.mb-1
                     h3
@@ -45,20 +46,14 @@
                             | • {{ item.place }}
                 h3.time {{ item.time }}
                 h4.mt-2 Responsibilities:
-                ul.text
-                    li(v-for='responsibility in item.responsibilities')
-                        | {{ responsibility }}
+                ListComponent.text(:list='item.responsibilities')
                 div(v-if='item.keyAccomplishments')
                     h4 Key accomplishments:
-                    p.text {{ item.keyAccomplishments }}
-            template(v-else-if='item.courseOrganiser')
-                .subsection-name.mb-1
-                    h3 {{ item.courseOrganiser }}
-                ul.text
-                    li(v-for='item in item.items')
-                        | {{ item }}
-            template(v-else-if='item.list')
-                ListComponent.text.skills-list(:list='item.list')
+                    ListComponent.text(
+                        v-if='!!(item.keyAccomplishments instanceof Array)',
+                        :list='item.keyAccomplishments'
+                    )
+                    p.text(v-else) {{ item.keyAccomplishments }}
 </template>
 
 <script lang="ts">

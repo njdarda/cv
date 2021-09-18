@@ -19,17 +19,5 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component
 export default class HeaderComponent extends Vue {
     @Prop() header!: Record<string, unknown>
-
-    // Hooks
-    mounted(): void {
-        let headerWrapper = this.$refs.headerWrapper as Element
-
-        setTimeout(() => {
-            headerWrapper.classList.add('init-animation')
-        }, 200)
-        setTimeout(() => {
-            headerWrapper.classList.remove('init-animation')
-        }, 1000)
-    }
 }
 </script>
