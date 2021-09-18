@@ -9,7 +9,7 @@ ul
                     |
                     |
                     span.item-note(v-if='item.note') {{ item.note }}
-                ListComponent.children-item(v-if='item.children', :list='item.children')
+                list-component.children-item(v-if='item.children', :list='item.children')
 </template>
 
 <script lang="ts">
