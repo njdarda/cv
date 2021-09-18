@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import App from './app.vue'
-import { BBadge, BIcon, BIconGeoAltFill, BIconTelephoneFill, BIconEnvelopeFill, BIconGithub } from 'bootstrap-vue'
+import {
+    BBadge,
+    BIcon,
+    BIconGeoAltFill,
+    BIconTelephoneFill,
+    BIconEnvelopeFill,
+    BIconGithub,
+    BIconBookmarkCheckFill,
+} from 'bootstrap-vue'
 import VueSessionStorage from 'vue-sessionstorage'
 import VueMeta from 'vue-meta'
 
@@ -10,6 +18,7 @@ Vue.component('BIconGeoAltFill', BIconGeoAltFill)
 Vue.component('BIconTelephoneFill', BIconTelephoneFill)
 Vue.component('BIconEnvelopeFill', BIconEnvelopeFill)
 Vue.component('BIconGithub', BIconGithub)
+Vue.component('BIconBookmarkCheckFill', BIconBookmarkCheckFill)
 
 Vue.config.productionTip = false
 Vue.use(VueMeta, {

@@ -6,11 +6,11 @@
             .shine
         .header-bar
             h1.name {{ header.name }}
-            h2.mb-2(v-for='link in header.links')
+            h4.mb-2(v-for='link in header.links')
                 a(:href='link.url + link.path')
-                    b-icon(:icon='link.type')
-                    |
-                    | {{ link.path }}
+                    b-icon(:icon='link.icon')
+                    | !{ ' ' }
+                    span {{ link.value }}
 </template>
 
 <script lang="ts">

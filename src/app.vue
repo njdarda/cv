@@ -42,11 +42,17 @@ export default class App extends Vue {
     }
 
     mounted(): void {
-        this.initAnimation(
-            parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000,
-            parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000,
-            this.getPrefersReducedMotion(),
-        )
+        if (this.$session.get('lastThemeColorIndex') !== undefined) {
+            this.setThemeColor(this.$session.get('lastThemeColorIndex') as number)
+        }
+
+        if (this.cvData.themeColors.length > 1 && !this.getPrefersReducedMotion()) {
+            this.initAnimation(
+                0,
+                parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000,
+                parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000,
+            )
+        }
     }
 
     metaInfo(): Record<string, unknown> {
@@ -60,42 +66,35 @@ export default class App extends Vue {
     }
 
     // Methods
-    initAnimation(baseAnimationTime: number, colorAnimationTime: number, reducedMotion = false): void {
-        if (this.$session.get('lastThemeColorIndex') !== undefined) {
-            this.themeColorIndex = this.$session.get('lastThemeColorIndex') as number
-            this.setThemeColor()
-        } else {
-            this.themeColorIndex = Math.floor(Math.random() * this.cvData.themeColors.length)
-        }
-
-        setTimeout(() => {
-            this.setThemeColor()
-        }, baseAnimationTime)
-
-        if (this.cvData.themeColors.length < 2 || reducedMotion) {
-            return
-        }
-
+    initAnimation(delay: number, baseAnimationTime: number, colorAnimationTime: number): void {
         let headerWrapper = (this.$refs.headerComponent as Vue).$refs.headerWrapper as Element
+
         setTimeout(() => {
             headerWrapper.classList.add('init-animation')
         }, baseAnimationTime)
+
         setTimeout(() => {
             headerWrapper.classList.remove('init-animation')
         }, 1.5 * baseAnimationTime)
 
         setTimeout(() => {
-            colorAnimationTime *= 8
-            this.cvData.cssVariables.colorAnimationTime = `${colorAnimationTime / 1000}s`
-
-            this.setThemeColor()
+            let h = document.documentElement
+            let b = document.body
             setInterval(() => {
-                this.setThemeColor()
+                var percent =
+                    ((h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight)) * 100
+                this.setThemeColor(Math.ceil((percent * (this.cvData.themeColors.length - 1)) / 100))
             }, colorAnimationTime)
-        }, baseAnimationTime * 2)
+        }, delay)
     }
 
-    setThemeColor(): void {
+    setThemeColor(index?: number): void {
+        if (index === this.themeColorIndex) {
+            return
+        }
+        if (index !== undefined) {
+            this.themeColorIndex = index
+        }
         if (this.themeColorIndex >= this.cvData.themeColors.length) {
             this.themeColorIndex = 0
         }

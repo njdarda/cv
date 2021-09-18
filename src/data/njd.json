@@ -1,5 +1,5 @@
 {
-    "themeColors": ["#c2535e", "#f3722c", "#f8961e", "#f9c74f", "#90be6d", "#43aa8b", "#577590"],
+    "themeColors": ["#90be6d", "#43aa8b", "#577590", "#c2535e", "#f3722c", "#f8961e", "#f9c74f"],
     "cssVariables": {
         "themeColor": "hsl(0, 0%, 80%)",
         "baseAnimationTime": "0.8s",
@@ -7,13 +7,13 @@
     },
     "header": {
         "name": "Jędrzej Darda",
-        "photo": "njd.png",
+        "photo": "njd.webp",
         "links": [
             {
-                "type": "github",
-                "icon": "github",
-                "url": "https://github.com",
-                "path": "/njdarda"
+                "name": "Website",
+                "icon": "bookmark-check-fill",
+                "url": "https://njdarda.github.io/cv/",
+                "value": "njdarda.github.io"
             }
         ]
     },
@@ -35,6 +35,12 @@
                     "value": "+48 609 888 864",
                     "icon": "telephone-fill",
                     "link": "tel:+48609888864"
+                },
+                {
+                    "name": "Github",
+                    "value": "/njdarda",
+                    "icon": "github",
+                    "link": "https://github.com/njdarda"
                 },
                 {
                     "name": "Location",
