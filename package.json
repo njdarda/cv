@@ -14,7 +14,8 @@
         "core-js": "^3.6.5",
         "vue": "^2.6.11",
         "vue-class-component": "^7.2.3",
-        "vue-property-decorator": "^9.1.2"
+        "vue-property-decorator": "^9.1.2",
+        "vue-sessionstorage": "^1.0.0"
     },
     "devDependencies": {
         "@prettier/plugin-pug": "^1.16.4",

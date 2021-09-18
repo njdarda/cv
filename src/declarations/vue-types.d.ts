@@ -3,7 +3,10 @@ import Vue from 'vue'
 
 declare module 'vue/types/vue' {
     interface Vue {
-        $testGlobalProp: ?string
+        $session: {
+            get: (key: string) => unknown
+            set: (key: string, value: unknown) => void
+        }
     }
 }
 

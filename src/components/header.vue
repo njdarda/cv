@@ -1,6 +1,6 @@
 <template lang="pug">
 .header-component
-    .header-box(ref='headerBox')
+    .header-wrapper(ref='headerWrapper')
         .photo
             .image
             .shine
@@ -22,13 +22,13 @@ export default class HeaderComponent extends Vue {
 
     // Hooks
     mounted(): void {
-        let headerBox = this.$refs.headerBox as Element
+        let headerWrapper = this.$refs.headerWrapper as Element
 
         setTimeout(() => {
-            headerBox.classList.add('init-animation')
+            headerWrapper.classList.add('init-animation')
         }, 0)
         setTimeout(() => {
-            headerBox.classList.remove('init-animation')
+            headerWrapper.classList.remove('init-animation')
         }, 1000)
     }
 }

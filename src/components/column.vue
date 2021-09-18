@@ -28,12 +28,14 @@
             div(v-if='item.break', :class='"new-" + item.break')
             template(v-if='item.degree')
                 .subsection-name.mb-1
-                    h3 {{ item.degree }} • {{ item.place }}
+                    h3
+                        span.position {{ item.course }}
+                        span
+                            |
+                            | • {{ item.place }}
                 h3.time {{ item.time }}
-                h3.course {{ item.course }}
-                span.text
-                    |
-                    | Specialisation: {{ item.specialisation }}
+                h4 {{ item.degree }}:
+                span.text {{ item.specialisation }}
             template(v-else-if='item.position')
                 .subsection-name.mb-1
                     h3

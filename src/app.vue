@@ -1,7 +1,7 @@
 <template lang="pug">
 #app
     .container
-        CssVariablesComponent(:cssVariables='cssVariables')
+        CssVariablesComponent(:cssVariables='cvData.cssVariables')
         .header
             HeaderComponent(:header='cvData.header')
         .left-column
@@ -32,15 +32,61 @@ import cvData from '@/data/jw.json'
 })
 export default class App extends Vue {
     cvData = cvData
-    cssVariables = {}
+    themeColorIndex!: number
 
     // Hooks
     created(): void {
-        this.cssVariables = this.cvData.cssVariables
-        this.cssVariables['photo'] = `url('${require('@/assets/photos/' + this.cvData.header.photo)}')`
+        cvData.cssVariables['photo'] = `url('${require('@/assets/photos/' + this.cvData.header.photo)}')`
+
+        this.animateColors(
+            parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000,
+            parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000,
+            this.getPrefersReducedMotion(),
+        )
     }
 
     // Methods
+    animateColors(baseAnimationTime: number, colorAnimationTime: number, reducedMotion = false): void {
+        if (this.$session.get('lastThemeColorIndex') !== undefined) {
+            this.themeColorIndex = this.$session.get('lastThemeColorIndex') as number
+            this.setThemeColor()
+        } else {
+            this.themeColorIndex = Math.floor(Math.random() * this.cvData.themeColors.length)
+        }
+
+        setTimeout(() => {
+            this.setThemeColor()
+        }, baseAnimationTime)
+
+        if (this.cvData.themeColors.length < 2 || reducedMotion) {
+            return
+        }
+
+        setTimeout(() => {
+            colorAnimationTime *= 8
+            this.cvData.cssVariables.colorAnimationTime = `${colorAnimationTime / 1000}s`
+
+            this.setThemeColor()
+            setInterval(() => {
+                this.setThemeColor()
+            }, colorAnimationTime)
+        }, baseAnimationTime * 2)
+    }
+
+    setThemeColor(): void {
+        if (this.themeColorIndex >= this.cvData.themeColors.length) {
+            this.themeColorIndex = 0
+        }
+        this.cvData.cssVariables.themeColor = this.cvData.themeColors[this.themeColorIndex]
+        this.$session.set('lastThemeColorIndex', this.themeColorIndex)
+        this.themeColorIndex += 1
+    }
+
+    getPrefersReducedMotion(): boolean {
+        const mediaQueryList = window.matchMedia('(prefers-reduced-motion: no-preference)')
+        return !mediaQueryList.matches
+    }
+
     getSections(sectionGroup: string): unknown {
         let sections: unknown[] = []
         for (const sectionName of cvData.contentGroups[sectionGroup]) {
