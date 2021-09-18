@@ -1,29 +1,9 @@
 @use 'sass:color'
 @import fonts
 
-:root
-    --theme-color: hsl(0, 0%, 100%)
-    --theme-color-h: 0
-    --theme-color-s: 0%
-    --theme-color-l: 100%
+@import css-variables
 
-    --photo: url('~@/assets/logo.png')
-
-    --font-family-base: 'Lora', 'Garamond', 'Liberation Serif', serif
-    --font-family-headings: 'Montserrat', sans-serif
-    --font-family-headings-print: 'Franklin Gothic Medium', sans-serif
-
-    --base-animation-time: 0.8s
-
-    --text-size: 1.20em
-
-$body-bg: white
-$font-family-base: var(--font-family-base)
-$font-size-base: 0.85rem
-$gray-900: #212529
-$body-color: $gray-900
-$link-color: $body-color
-
+@import bootstrap-variable-overrides
 @import ~bootstrap/scss/bootstrap
 @import ~bootstrap-vue/src/index.scss
 
