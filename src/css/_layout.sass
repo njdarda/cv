@@ -36,8 +36,27 @@
             .right-column > .column-component
                 padding: 0
 
-@media screen
-    .background
+    .two-column-list
+        column-count: 2
+
+    .break-section,
+    .break-page
+        display: none
+        & + *
+            break-before: column
+
+    +media-breakpoint-between(xs, md)
+        .two-column-list
+            column-count: 1
+
+        .break-section,
+        .break-page
+            display: none
+            & + *
+                break-before: auto
+
+#app > .background
+    @media screen
         z-index: -1
         top: 0
         left: 0

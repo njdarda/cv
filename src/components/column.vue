@@ -1,7 +1,7 @@
 <template lang="pug">
 .column-component
     template(v-for='section in sections')
-        div(v-if='section.break', :class='"new-" + section.break')
+        div(v-if='section.break', :class='"break-" + section.break')
         .section-name.mb-2(v-if='section.name')
             h2 {{ section.name }}
 
@@ -18,14 +18,14 @@
         template(v-else-if='section.languages')
             ul.text.no-indent
                 li(v-for='language in section.languages')
-                    strong.language-name {{ language.name }}:
+                    strong.language-name {{ language.name }}:!{ ' ' }
                     span {{ language.level }}
 
         template(v-else-if='section.list')
             ListComponent.text(:list='section.list', :class='section.class')
 
         template(v-else-if='section.items', v-for='item in section.items')
-            div(v-if='item.break', :class='"new-" + item.break')
+            div(v-if='item.break', :class='"break-" + item.break')
 
             template(v-if='item.degree')
                 .subsection-name.mb-1

@@ -44,14 +44,12 @@ export default class App extends Vue {
     mounted(): void {
         if (this.$session.get('lastThemeColorIndex') !== undefined) {
             this.setThemeColor(this.$session.get('lastThemeColorIndex') as number)
+        } else if (!this.getPrefersReducedMotion()) {
+            this.initAnimation(0, parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000)
         }
 
         if (this.cvData.themeColors.length > 1 && !this.getPrefersReducedMotion()) {
-            this.initAnimation(
-                0,
-                parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000,
-                parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000,
-            )
+            this.scrollAnimation(parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000)
         }
     }
 
@@ -66,26 +64,25 @@ export default class App extends Vue {
     }
 
     // Methods
-    initAnimation(delay: number, baseAnimationTime: number, colorAnimationTime: number): void {
+    initAnimation(delay: number, baseAnimationTime: number): void {
         let headerWrapper = (this.$refs.headerComponent as Vue).$refs.headerWrapper as Element
 
         setTimeout(() => {
             headerWrapper.classList.add('init-animation')
-        }, baseAnimationTime)
+        }, delay + baseAnimationTime)
 
         setTimeout(() => {
             headerWrapper.classList.remove('init-animation')
         }, 1.5 * baseAnimationTime)
+    }
 
-        setTimeout(() => {
-            let h = document.documentElement
-            let b = document.body
-            setInterval(() => {
-                var percent =
-                    ((h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight)) * 100
-                this.setThemeColor(Math.ceil((percent * (this.cvData.themeColors.length - 1)) / 100))
-            }, colorAnimationTime)
-        }, delay)
+    scrollAnimation(colorAnimationTime: number): void {
+        let h = document.documentElement
+        let b = document.body
+        setInterval(() => {
+            var percent = ((h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight)) * 100
+            this.setThemeColor(Math.ceil((percent * (this.cvData.themeColors.length - 1)) / 100))
+        }, colorAnimationTime)
     }
 
     setThemeColor(index?: number): void {

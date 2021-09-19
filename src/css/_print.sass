@@ -5,9 +5,6 @@ $print-margin: 1.6cm
     #footer
         display: none
 
-.new-section
-    break-after: column
-
 @media print
     $page-width: 210mm
     $page-height: 272mm
@@ -33,12 +30,13 @@ $print-margin: 1.6cm
         height: $page-height
         -webkit-print-color-adjust: exact
 
-    .new-section,
-    .new-page
-        page-break-after: always
-        break-before: column
+    .break-section,
+    .break-page
+        display: none
+        & + *
+            page-break-before: always
 
-    .new-page + *
+    .break-page + *
         margin-top: $print-margin !important
 
     // overrides

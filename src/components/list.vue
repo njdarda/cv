@@ -1,7 +1,7 @@
 <template lang="pug">
 ul
     template(v-for='(item, index) in list')
-        div(v-if='item.break', :class='"new-" + item.break')
+        li(v-if='item.break', :class='"break-" + item.break')
         li.list-item
             span(v-if='typeof item === "string"') {{ item }}
             template(v-else)

@@ -53,6 +53,12 @@ h3, h4, h5, h6
     width: 0px
     white-space: nowrap
 
+    +media-breakpoint-between(md, lg)
+        display: inline
+        width: auto
+        white-space: inherit
+        margin-right: inherit
+
 .item-note
     font-size: 0.9em
     color: $gray-600
