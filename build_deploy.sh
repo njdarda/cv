@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 # build
 npm run deploy
 
-git add .
+git add ./docs/
 git commit -m 'deploy'
 
 git push
