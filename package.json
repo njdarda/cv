@@ -23,6 +23,7 @@
         "vuex": "^4.0.0"
     },
     "devDependencies": {
+        "@prettier/plugin-pug": "^1.16.6",
         "@types/color": "^3.0.2",
         "@types/jest": "^27.0.1",
         "@typescript-eslint/eslint-plugin": "^4.15.1",
@@ -45,6 +46,7 @@
         "cypress": "^8.3.0",
         "eslint": "^7.20.0",
         "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-pug": "^1.2.4",
         "eslint-plugin-vue": "^7.2.0",
         "jest": "^27.0.5",
         "prettier": "^2.2.1",
