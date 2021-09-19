@@ -7,7 +7,7 @@
         .header-bar
             h1.name {{ header.name }}
             h2.mb-2(v-for='link in header.links')
-                a(:href='link.url + link.path')
+                a(:href='link.url', target='_blank')
                     b-icon(:icon='link.icon')
                     | !{ ' ' }
                     span {{ link.value }}

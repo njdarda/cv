@@ -80,24 +80,22 @@ export default class App extends Vue {
         let h = document.documentElement
         let b = document.body
         setInterval(() => {
-            var percent = ((h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight)) * 100
-            this.setThemeColor(Math.ceil((percent * (this.cvData.themeColors.length - 1)) / 100))
+            let percent = ((h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight)) * 100
+            let index = Math.ceil((percent * (this.cvData.themeColors.length - 1)) / 100)
+            this.setThemeColor(index)
         }, colorAnimationTime)
     }
 
-    setThemeColor(index?: number): void {
+    setThemeColor(index: number): void {
         if (index === this.themeColorIndex) {
             return
         }
-        if (index !== undefined) {
-            this.themeColorIndex = index
+        if (index >= this.cvData.themeColors.length) {
+            index = 0
         }
-        if (this.themeColorIndex >= this.cvData.themeColors.length) {
-            this.themeColorIndex = 0
-        }
-        this.cvData.cssVariables.themeColor = this.cvData.themeColors[this.themeColorIndex]
-        this.$session.set('lastThemeColorIndex', this.themeColorIndex)
-        this.themeColorIndex += 1
+        this.themeColorIndex = index
+        this.cvData.cssVariables.themeColor = this.cvData.themeColors[index]
+        this.$session.set('lastThemeColorIndex', index)
     }
 
     getPrefersReducedMotion(): boolean {

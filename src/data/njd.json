@@ -1,5 +1,5 @@
 {
-    "themeColors": ["#90be6d", "#43aa8b", "#577590", "#c2535e", "#f3722c", "#f8961e", "#f9c74f"],
+    "themeColors": ["#90be6d", "#43aa8b", "#3976ac", "#c2535e", "#f3722c", "#f8961e", "#f9c74f"],
     "cssVariables": {
         "themeColor": "hsl(0, 0%, 80%)",
         "baseAnimationTime": "0.8s",

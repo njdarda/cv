@@ -7,7 +7,11 @@
 
         .contacts-container(v-if='section.contacts')
             .contact(v-for='contact in section.contacts')
-                a(v-if='contact.link', :href='contact.link')
+                a(
+                    v-if='contact.link',
+                    :href='contact.link',
+                    :target='contact.link.startsWith("https") ? "_blank" : ""'
+                )
                     b-badge.has-link.mr-2.mb-2.align-middle
                         b-icon(:icon='contact.icon')
                 template(v-else)
