@@ -2,10 +2,10 @@
 node_modules
 /dist
 
-/src/assets/photos/*
-!/src/assets/photos/njd.*
-/src/data/*
-!/src/data/njd.json
+/vue2
+
+/tests/e2e/videos/
+/tests/e2e/screenshots/
 
 
 # local env files
