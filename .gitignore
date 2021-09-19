@@ -1,12 +1,16 @@
+/vue2
+/src/assets/photos/*
+!/src/assets/photos/njd.*
+/src/data/*
+!/src/data/njd.json
+
+# default
 .DS_Store
 node_modules
 /dist
 
-/vue2
-
 /tests/e2e/videos/
 /tests/e2e/screenshots/
-
 
 # local env files
 .env.local
