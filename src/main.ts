@@ -4,4 +4,16 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
-createApp(App).use(store).use(router).mount('#app')
+import 'bootstrap'
+import SvgIcon from '@/components/SvgIcon.vue'
+import { createMetaManager } from 'vue-meta'
+
+const app = createApp(App)
+
+app.use(store)
+app.use(router)
+app.use(createMetaManager())
+
+app.component('SvgIcon', SvgIcon)
+
+app.mount('#app')
