@@ -10,6 +10,7 @@
                 a(
                     v-if='contact.link',
                     :href='contact.link',
+                    :aria-label='contact.name',
                     :target='contact.link.startsWith("https") ? "_blank" : ""'
                 )
                     span.badge.has-link.me-2.mb-2.align-middle
