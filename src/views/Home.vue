@@ -13,7 +13,8 @@
 </template>
 
 <script lang="ts">
-import { Options, setup, Vue } from 'vue-class-component'
+import { Vue, Options, setup } from 'vue-class-component'
+import { computed } from 'vue'
 // Components
 import HeaderComponent from '@/components/Header.vue'
 import ColumnComponent from '@/components/Column.vue'
@@ -23,7 +24,6 @@ import CssVariablesComponent from '@/components/CssVariables.vue'
 import { useMeta } from 'vue-meta'
 // Data
 import cvData from '@/data/njd.json'
-import { computed } from 'vue'
 
 @Options({
     components: {

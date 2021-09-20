@@ -7,6 +7,13 @@ module.exports = {
     css: {
         sourceMap: process.env.CSS_SOURCE_MAP === 'true' ? true : false,
     },
+    pwa: {
+        workboxPluginMode: 'InjectManifest',
+        workboxOptions: {
+            swSrc: './src/service-worker.ts',
+            exclude: [/manifest\.json$/],
+        },
+    },
     chainWebpack: (config) => {
         config.module.rule('svg').use('file-loader').loader('svg-inline-loader')
     },
