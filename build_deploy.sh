@@ -7,9 +7,9 @@ cd "$(dirname "$0")"
 
 # build
 echo -e "
-    LOCAL_BUILD=true
-    JS_SOURCE_MAP=true
-    CSS_SOURCE_MAP=true
+    LOCAL_BUILD=false
+    JS_SOURCE_MAP=false
+    CSS_SOURCE_MAP=false
 " > ./.env.local
 
 npm run deploy
