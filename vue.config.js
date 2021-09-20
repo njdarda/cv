@@ -13,6 +13,13 @@ module.exports = {
             swSrc: './src/service-worker.ts',
         },
     },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                '~': path.resolve(__dirname, 'node_modules'),
+            },
+        },
+    },
     chainWebpack: (config) => {
         config.module.rule('svg').use('file-loader').loader('svg-inline-loader')
     },

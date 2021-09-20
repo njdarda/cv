@@ -1,9 +1,6 @@
-<template lang="pug">
-span.svg-icon(v-html='getIcon(icon)')
-</template>
-
 <script lang="ts">
 import { Vue, Options } from 'vue-class-component'
+import { VNode, h } from 'vue'
 
 @Options({
     name: 'svg-icon',
@@ -12,16 +9,18 @@ import { Vue, Options } from 'vue-class-component'
 export default class SvgIconComponent extends Vue {
     icon!: string
 
-    // Methods
-    getIcon(icon: string): SVGElement {
-        return require('@/assets/icons/' + icon + '.svg')
+    // Hooks
+    render(): VNode {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        let svg = require('~/bootstrap-icons/icons/' + this.icon + '.svg')
+
+        return h('svg', {
+            class: ['bi', 'bi-' + this.icon],
+            xmlns: 'http://www.w3.org/2000/svg',
+            fill: 'currentColor',
+            viewBox: '0 0 16 16',
+            innerHTML: (document.createRange().createContextualFragment(svg).firstChild as HTMLElement).innerHTML,
+        })
     }
 }
 </script>
-
-<style lang="sass">
-.svg-icon > svg
-    height: 1em
-    width: 1em
-    vertical-align: -.15em
-</style>
