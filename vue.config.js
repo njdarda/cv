@@ -11,7 +11,6 @@ module.exports = {
         workboxPluginMode: 'InjectManifest',
         workboxOptions: {
             swSrc: './src/service-worker.ts',
-            exclude: [/manifest\.json$/],
         },
     },
     chainWebpack: (config) => {
