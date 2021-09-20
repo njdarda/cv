@@ -11,6 +11,7 @@ module.exports = {
         '@vue/prettier',
         '@vue/prettier/@typescript-eslint',
     ],
+    ignorePatterns: ['/*.config.js'],
     parserOptions: {
         ecmaVersion: 2020,
     },
