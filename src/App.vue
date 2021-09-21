@@ -4,6 +4,26 @@ metainfo
 router-view
 </template>
 
-<style lang="scss">
-@import '@/css/app.sass';
+<script lang="ts">
+import { Vue } from 'vue-class-component'
+// Libraries
+import PerfectScrollbar from 'perfect-scrollbar'
+
+export default class App extends Vue {
+    ps!: PerfectScrollbar
+
+    mounted(): void {
+        this.ps = new PerfectScrollbar('#app', {
+            suppressScrollX: true,
+        })
+    }
+
+    beforeUnmount(): void {
+        this.ps.destroy()
+    }
+}
+</script>
+
+<style lang="sass">
+@import '@/css/app.sass'
 </style>

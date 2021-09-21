@@ -1,6 +1,6 @@
 @use 'bootstrap' as b
 
-#app > .container
+#app > #cv-app
     .position,
     .course
         display: inline-block
@@ -16,8 +16,8 @@
             padding-inline-start: 1em
 
     .contacts-container
-        margin-right: -80px
-        will-change: transform
+        margin-right: calc(-1 * #{b.$spacer})
+        backface-visibility: hidden
 
         @media screen
             +b.media-breakpoint-between(null, lg)

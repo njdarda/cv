@@ -1,76 +1,122 @@
+@use 'sass:color'
 @use 'bootstrap' as b
 
-#app > .container
-    background-color: white
-    box-shadow: 0px 0px 55px -40px #000000
+html
+    overflow: hidden
 
-    display: grid
-    grid-template-columns: 1fr 2fr
-    grid-template-rows: 260px 1fr
-    gap: 0px 0px
-    grid-template-areas: 'header header' 'left-column right-column'
-
-    padding: calc(3 * #{b.$spacer})
-
-    .header
-        grid-area: header
-
-    .left-column
-        grid-area: left-column
-
-        & > .column-component
-            padding-top: 64px
-            padding-right: calc(2 * #{b.$spacer})
-
-    .right-column
-        grid-area: right-column
-        z-index: 1
-
-        & > .column-component
-            padding-left: calc(1.5 * #{b.$spacer})
+#app
+    position: relative
+    width: 100vw
+    height: 100vh
+    z-index: 0
 
     @media screen
-        +b.media-breakpoint-between(null, md)
-            display: block
-            padding: b.$spacer
+        &::after
+            content: ''
+            z-index: -1
+            top: 0
+            left: 0
+            position: fixed
+            width: 100vw
+            height: 100vh
+            background: radial-gradient(circle at center, #ececec 0%, b.$gray-400 150%)
 
-            .left-column > .column-component,
-            .right-column > .column-component
-                padding: 0
-
-    .two-column-list
-        column-count: 2
-
-    .break-section,
-    .break-page
-        display: none
-        & + *
-            break-before: column
-
-    +b.media-breakpoint-between(md, lg)
-        .two-column-list
-            column-count: 1
-
-        .break-section,
-        .break-page
-            & + *
-                break-before: auto
-
-    +b.media-breakpoint-between(null, sm)
-        .two-column-list
-            column-count: 1
-
-        .break-section,
-        .break-page
-            & + *
-                break-before: auto
-
-#app > .background
-    @media screen
-        z-index: -1
-        top: 0
-        left: 0
+    & > #nav
         position: fixed
-        width: 100vw
-        height: 100vh
-        background: radial-gradient(circle at center, #ececec 0%, b.$gray-400 150%)
+        z-index: 9999
+
+    & > #cv-app
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        min-height: 100vh
+        background-color: b.$white
+        box-shadow: 0px 0px 55px -40px b.$black
+        backface-visibility: hidden
+
+        display: grid
+        grid-template-columns: 1fr 2fr
+        grid-template-rows: 260px 1fr
+        gap: 0px 0px
+        grid-template-areas: 'header header' 'left-column right-column'
+
+        padding: calc(3 * #{b.$spacer})
+
+        .header
+            grid-area: header
+
+        .left-column
+            grid-area: left-column
+
+            & > .column-component
+                padding-top: 64px
+                padding-right: calc(2 * #{b.$spacer})
+
+        .right-column
+            grid-area: right-column
+            z-index: 1
+
+            & > .column-component
+                padding-left: calc(1.5 * #{b.$spacer})
+
+        svg[class^="bi-"],
+        svg[class*=" bi-"]
+            display: inline-block
+            line-height: 1
+            vertical-align: -.125em
+            width: 1em
+
+        @media screen
+            +b.media-breakpoint-between(null, md)
+                display: block
+                padding: b.$spacer
+
+                .left-column > .column-component,
+                .right-column > .column-component
+                    padding: 0
+
+        .two-column-list
+            column-count: 2
+
+        .break-section,
+        .break-page
+            display: none
+            & + *
+                break-before: column
+
+        +b.media-breakpoint-between(md, lg)
+            .two-column-list
+                column-count: 1
+
+            .break-section,
+            .break-page
+                & + *
+                    break-before: auto
+
+        +b.media-breakpoint-between(null, sm)
+            .two-column-list
+                column-count: 1
+
+            .break-section,
+            .break-page
+                & + *
+                    break-before: auto
+
+// scrollbar
+.ps > .ps__rail-y
+    background-color: rgba(0,0,0,0.06) !important
+    width: 10px !important
+
+.ps:hover > .ps__rail-y
+    opacity: 0.5
+
+.ps .ps__rail-y:hover
+    opacity: 1
+
+.ps__rail-y > .ps__thumb-y
+    background-color: var(--theme-color) !important
+    transition: background-color var(--color-animation-time) ease-in-out
+    border-radius: 0
+    width: 10px !important
+    right: 0!important

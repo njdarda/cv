@@ -1,7 +1,7 @@
 {
     "themeColors": ["#90be6d", "#43aa8b", "#3976ac", "#c2535e", "#f3722c", "#f8961e", "#f9c74f"],
     "cssVariables": {
-        "themeColor": "hsl(0, 0%, 80%)",
+        "themeColor": "hsl(0deg, 0%, 80%)",
         "baseAnimationTime": "0.8s",
         "colorAnimationTime": "0.8s"
     },
@@ -19,7 +19,7 @@
     },
     "contentGroups": {
         "leftColumn": ["contacts", "skills", "languages", "education", "courses", "meetings", "hobbies"],
-        "rightColumn": ["experience", "technicalSkills", "tools"]
+        "rightColumn": ["experience", "personalProjects", "technicalSkills", "tools"]
     },
     "content": {
         "contacts": {
@@ -46,6 +46,44 @@
                     "name": "Location",
                     "value": "Kraków",
                     "icon": "geo-alt-fill"
+                }
+            ]
+        },
+        "personalProjects": {
+            "name": "Personal projects",
+            "items": [
+                {
+                    "project": "Personal website",
+                    "time": "2021",
+                    "keyAccomplishments": "Built a personal website, learning a number of new technologies and good practices.",
+                    "features": [
+                        "used service workers to cache content and turn the website into Progressive Web App",
+                        "used Vue's Class Component pattern to create readable, maintainable components",
+                        "applied accessibility good practices, e.g. labelled elements, respecting user's 'reduced motion' and 'theme' preferences",
+                        "used Vue router and Vue transitions for fast and effective navigation",
+                        "used lighthouse to ensure website conforms to modern standards",
+                        "utilised code splitting and CSS pruning to achieve small application size",
+                        "built an app using modern front-end technologies: Vue 3, Webpack 5, Sass, Pug",
+                        "ensured website is responsive and renders correctly on any display size",
+                        "ensured website can be printed using media queries",
+                        "ensured website is fast and responsive but remain attractive using animations",
+                        "used GitHub pages to host the website"
+                    ]
+                },
+                {
+                    "project": "Stock trading client ",
+                    "time": "2020",
+                    "keyAccomplishments": "Built a working stock trading client enabling reading news from mulitple sources, displaying charts and placing orders using Interactive Brokers API.",
+                    "features": [
+                        "py",
+                        "sqlalchemy",
+                        "alembic",
+                        "built a wrapper around IB API that leverages ",
+                        "concurrency, multi threaded architecture",
+                        "asyncio",
+                        "used websockets for fast communication between backend and frontend",
+                        "used vue2 with vue-bootstrap to create front end of the application"
+                    ]
                 }
             ]
         },

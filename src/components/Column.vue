@@ -42,6 +42,21 @@
                 h4 {{ item.degree }}:
                 span.text {{ item.specialisation }}
 
+            template(v-else-if='item.project')
+                .subsection-name.mb-1
+                    h3
+                        span.project {{ item.project }}
+                h3.time {{ item.time }}
+                div(v-if='item.keyAccomplishments')
+                    h4 Key accomplishments:
+                    ListComponent.text(
+                        v-if='!!(item.keyAccomplishments instanceof Array)',
+                        :list='item.keyAccomplishments'
+                    )
+                    p.text(v-else) {{ item.keyAccomplishments }}
+                h4.mt-2 Features:
+                ListComponent.text(:list='item.features')
+
             template(v-else-if='item.position')
                 .subsection-name.mb-1
                     h3

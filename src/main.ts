@@ -4,9 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
-import 'bootstrap'
-import SvgIcon from '@/components/SvgIcon.vue'
 import { createMetaManager } from 'vue-meta'
+import SvgIcon from '@/components/SvgIcon.vue'
+import 'bootstrap'
 
 const app = createApp(App)
 

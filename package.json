@@ -17,6 +17,7 @@
     "change-case": "^4.1.2",
     "color": "^4.0.1",
     "core-js": "^3.8.3",
+    "perfect-scrollbar": "^1.5.2",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.6",
     "vue-class-component": "^8.0.0-0",

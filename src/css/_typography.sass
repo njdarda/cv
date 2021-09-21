@@ -3,88 +3,93 @@
 body
     font-size: var(--font-size-base)
 
-@media screen
-    +b.media-breakpoint-between(null, lg)
-        :root
-            --font-size-base: 0.9rem
-    +b.media-breakpoint-between(lg, xl)
-        :root
-            --font-size-base: calc( 0.56rem + 0.58vw )
-    +b.media-breakpoint-between(xl, null)
-        :root
-            --font-size-base: 1rem
+#app > #cv-app
+    @media screen
+        +b.media-breakpoint-between(null, lg)
+            :root
+                --font-size-base: 0.9rem
+        +b.media-breakpoint-between(lg, xl)
+            :root
+                --font-size-base: calc( 0.56rem + 0.58vw )
+        +b.media-breakpoint-between(xl, null)
+            :root
+                --font-size-base: 1rem
 
-.text
-    font-size: 1.02em
-    font-family: var(--font-family-base)
-    white-space: pre-line
+    .text
+        font-size: 1.02em
+        font-family: var(--font-family-base)
+        white-space: pre-line
 
-h1, h2, h3, h4, h5, h6
-    font-family: var(--font-family-headings)
-    transition: color var(--color-animation-time) ease-in-out
+    h1, h2, h3, h4, h5, h6
+        font-family: var(--font-family-headings)
+        transition: color var(--color-animation-time) ease-in-out
 
-h1
-    font-size: 2.7em
+    h1
+        font-size: 2.7em
 
-h2
-    font-size: 1.7em
+    h2
+        font-size: 1.7em
 
-h3
-    font-size: 1.15em
+    h3
+        font-size: 1.15em
 
-h4
-    font-size: 1.1em
-    line-height: 1.6
-    color: hsl(var(--theme-color-h), var(--theme-color-s), calc(0.6 * var(--theme-color-l)))
+    h4
+        font-size: 1.1em
+        line-height: 1.6
+        color: hsl(var(--theme-color-h), var(--theme-color-s), calc(0.6 * var(--theme-color-l)))
 
-h1, h2, h3
-    text-transform: uppercase
+    h1, h2, h3
+        text-transform: uppercase
 
-h3, h4, h5, h6
-    margin-bottom: 0.1em
+    h3, h4, h5, h6
+        margin-bottom: 0.1em
 
-.professional
-    font-weight: bold
+    .professional
+        font-weight: bold
 
-.language-name
-    display: inline-block
-    margin-right: 50%
-    width: 0px
-    white-space: nowrap
+    .language-name
+        display: inline-block
+        margin-right: 50%
+        width: 0px
+        white-space: nowrap
 
-    +b.media-breakpoint-between(null, xl)
-        display: inline
-        width: auto
-        white-space: inherit
-        margin-right: inherit
+        +b.media-breakpoint-between(null, xl)
+            display: inline
+            width: auto
+            white-space: inherit
+            margin-right: inherit
 
-.item-note
-    font-size: 0.9em
-    color: b.$gray-600
+    .item-note
+        font-size: 0.9em
+        color: b.$gray-600
 
-.section-name > h2,
-.section-name::after
-    font-size: 1.7em
-    transition: border-color var(--color-animation-time) ease-in-out, color var(--color-animation-time) ease-in-out
-    border-bottom: 10px solid var(--theme-color)
-    padding-bottom: calc(0.4 * #{b.$spacer})
-    margin-bottom: 0.25em
-    width: 100%
+    .section-name,
+    .subsection-name
+        display: flex
 
-.section-name > h2 > span
-    transition: color var(--color-animation-time) ease-in-out
+    .section-name > h2,
+    .section-name::after
+        font-size: 1.7em
+        transition: border-color var(--color-animation-time) ease-in-out, color var(--color-animation-time) ease-in-out
+        border-bottom: 10px solid var(--theme-color)
+        padding-bottom: calc(0.4 * #{b.$spacer})
+        margin-bottom: 0.25em
+        width: 100%
 
-.subsection-name > h3,
-.subsection-name::after
-    font-size: 1.15em
-    transition: border-color var(--color-animation-time) ease-in-out, color var(--color-animation-time) ease-in-out
-    border-bottom: 4px solid hsla(var(--theme-color-h), var(--theme-color-s), calc(1.25 * var(--theme-color-l)))
-    padding-bottom: calc(0.1 * #{b.$spacer})
-    margin-bottom: 0.1em
-    width: 100%
+    .section-name > h2 > span
+        transition: color var(--color-animation-time) ease-in-out
 
-.subsection-name > h3 > span
-    transition: color var(--color-animation-time) ease-in-out !important
+    .subsection-name > h3,
+    .subsection-name::after
+        font-size: 1.15em
+        transition: border-color var(--color-animation-time) ease-in-out, color var(--color-animation-time) ease-in-out
+        border-bottom: 4px solid hsla(var(--theme-color-h), var(--theme-color-s), calc(1.25 * var(--theme-color-l)))
+        padding-bottom: calc(0.1 * #{b.$spacer})
+        margin-bottom: 0.1em
+        width: 100%
 
-.section-name:not(:first-child)
-    margin-top: calc(2.25 * #{b.$spacer})
+    .subsection-name > h3 > span
+        transition: color var(--color-animation-time) ease-in-out !important
+
+    .section-name:not(:first-child)
+        margin-top: calc(2.25 * #{b.$spacer})

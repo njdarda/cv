@@ -1,15 +1,13 @@
 <template lang="pug">
-#app
-    .container
-        CssVariablesComponent(:cssVariables='cvData.cssVariables')
-        .header
-            HeaderComponent(ref='headerComponent', :header='cvData.header')
-        .left-column
-            ColumnComponent(:sections='getSections("leftColumn")')
-        .right-column
-            ColumnComponent(:sections='getSections("rightColumn")')
-        footer#footer Footer
-    .background
+#cv-app.container.home-container
+    CssVariablesComponent(:cssVariables='cvData.cssVariables')
+    .header
+        HeaderComponent(ref='headerComponent', :header='cvData.header')
+    .left-column
+        ColumnComponent(:sections='getSections("leftColumn")')
+    .right-column
+        ColumnComponent(:sections='getSections("rightColumn")')
+    footer#footer Footer
 </template>
 
 <script lang="ts">
@@ -35,6 +33,7 @@ import cvData from '@/data/njd.json'
 export default class Home extends Vue {
     cvData = cvData
     themeColorIndex!: number
+    interval!: number
 
     meta = setup(() => {
         return useMeta(
@@ -52,37 +51,54 @@ export default class Home extends Vue {
     }
 
     mounted(): void {
-        if (window.sessionStorage.getItem('lastThemeColorIndex') !== null) {
-            this.setThemeColor(parseInt(window.sessionStorage.getItem('lastThemeColorIndex') as string))
-        } else if (!this.getPrefersReducedMotion()) {
-            this.initAnimation(0, parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000)
+        if (!this.getPrefersReducedMotion()) {
+            if (window.sessionStorage.getItem('lastThemeColorIndex') !== null) {
+                this.setThemeColor(parseInt(window.sessionStorage.getItem('lastThemeColorIndex') as string))
+            } else {
+                this.initAnimation(parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000)
+            }
         }
 
         if (this.cvData.themeColors.length > 1 && !this.getPrefersReducedMotion()) {
-            this.scrollAnimation(parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000)
+            this.interval = this.scrollAnimation(parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000)
         }
     }
 
+    beforeUnmount(): void {
+        clearInterval(this.interval)
+    }
+
     // Methods
-    initAnimation(delay: number, baseAnimationTime: number): void {
+    initAnimation(baseAnimationTime: number): void {
+        let sectionElements = document.querySelectorAll('.section-name, .subsection-name')
+        for (const sectionElement of sectionElements) {
+            sectionElement.classList.add('init-animation')
+        }
+
+        setTimeout(() => {
+            for (const sectionElement of sectionElements) {
+                sectionElement.classList.remove('init-animation')
+            }
+        }, 3 * baseAnimationTime)
+
         let headerWrapper = (this.$refs.headerComponent as Vue).$refs.headerWrapper as Element
 
         setTimeout(() => {
             headerWrapper.classList.add('init-animation')
-        }, delay + baseAnimationTime)
+        }, baseAnimationTime)
 
         setTimeout(() => {
             headerWrapper.classList.remove('init-animation')
         }, 1.5 * baseAnimationTime)
     }
 
-    scrollAnimation(colorAnimationTime: number): void {
-        let h = document.documentElement
-        let b = document.body
-        setInterval(() => {
-            let percent = ((h.scrollTop || b.scrollTop) / ((h.scrollHeight || b.scrollHeight) - h.clientHeight)) * 100
-            let index = Math.ceil((percent * (this.cvData.themeColors.length - 1)) / 100)
-            this.setThemeColor(index)
+    scrollAnimation(colorAnimationTime: number): number {
+        var h = document.documentElement
+        let b = document.getElementById('app') as Element
+
+        return setInterval(() => {
+            let index = Math.ceil((b.scrollTop / (b.scrollHeight - h.clientHeight)) * this.cvData.themeColors.length)
+            this.setThemeColor(index > 1 ? index - 1 : 0)
         }, colorAnimationTime)
     }
 
