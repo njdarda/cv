@@ -1,12 +1,7 @@
 <template lang="pug">
-#nav
-    router-link(to='/') Home
-    router-link(to='/about') About
 metainfo
     template(v-slot:title='{ content }')
-router-view(v-slot='{ Component }')
-    transition(name='slide-fade')
-        component(:is='Component')
+router-view
 </template>
 
 <script lang="ts">
