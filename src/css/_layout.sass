@@ -2,7 +2,8 @@
 @use 'bootstrap' as b
 
 html
-    overflow: hidden
+    overflow-y: overlay
+    overflow-x: hidden
 
 #app
     position: relative
@@ -19,7 +20,7 @@ html
             position: fixed
             width: 100vw
             height: 100vh
-            background: radial-gradient(circle at center, #ececec 0%, b.$gray-400 150%)
+            background: radial-gradient(circle at center, b.$gray-100 0%, b.$gray-400 120%)
 
     & > #nav
         position: fixed
@@ -104,19 +105,15 @@ html
                     break-before: auto
 
 // scrollbar
-.ps > .ps__rail-y
-    background-color: rgba(0,0,0,0.06) !important
-    width: 10px !important
+::-webkit-scrollbar
+    width: 10px
+    height: 10px
 
-.ps:hover > .ps__rail-y
-    opacity: 0.5
+::-webkit-scrollbar-thumb
+    background-color: hsl(var(--theme-color-h), var(--theme-color-s), calc(0.6 * var(--theme-color-l)))
 
-.ps .ps__rail-y:hover
-    opacity: 1
+::-webkit-scrollbar-thumb:hover
+    background-color: var(--theme-color)
 
-.ps__rail-y > .ps__thumb-y
-    background-color: var(--theme-color) !important
-    transition: background-color var(--color-animation-time) ease-in-out
-    border-radius: 0
-    width: 10px !important
-    right: 0!important
+::-webkit-scrollbar-track
+    background: transparent

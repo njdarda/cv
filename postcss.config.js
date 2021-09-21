@@ -18,7 +18,6 @@ module.exports = {
                     'no-indent',
                     'break-section',
                     'break-page',
-                    /^ps/,
                 ],
             }),
     ],

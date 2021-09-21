@@ -94,10 +94,10 @@ export default class Home extends Vue {
 
     scrollAnimation(colorAnimationTime: number): number {
         var h = document.documentElement
-        let b = document.getElementById('app') as Element
+        let b = document.body
 
         return setInterval(() => {
-            let index = Math.ceil((b.scrollTop / (b.scrollHeight - h.clientHeight)) * this.cvData.themeColors.length)
+            let index = Math.ceil((h.scrollTop / (b.scrollHeight - h.clientHeight)) * this.cvData.themeColors.length)
             this.setThemeColor(index > 1 ? index - 1 : 0)
         }, colorAnimationTime)
     }
