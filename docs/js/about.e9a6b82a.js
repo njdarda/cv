@@ -1,1 +1,0 @@
-"use strict";(self["webpackChunkcv"]=self["webpackChunkcv"]||[]).push([[443],{529:function(n,u,t){t.r(u),t.d(u,{default:function(){return o}});var c=t(99);const e={class:"about"},s=(0,c._)("h1",null,"This is an about page",-1),a=[s];function r(n,u){return(0,c.wg)(),(0,c.iD)("div",e,a)}const i={};i.render=r;var o=i}}]);
