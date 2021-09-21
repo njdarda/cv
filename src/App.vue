@@ -15,6 +15,7 @@ export default class App extends Vue {
     mounted(): void {
         this.ps = new PerfectScrollbar('#app', {
             suppressScrollX: true,
+            swipeEasing: false,
         })
     }
 

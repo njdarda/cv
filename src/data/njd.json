@@ -75,14 +75,11 @@
                     "time": "2020",
                     "keyAccomplishments": "Built a working stock trading client enabling reading news from mulitple sources, displaying charts and placing orders using Interactive Brokers API.",
                     "features": [
-                        "py",
-                        "sqlalchemy",
-                        "alembic",
-                        "built a wrapper around IB API that leverages ",
-                        "concurrency, multi threaded architecture",
-                        "asyncio",
-                        "used websockets for fast communication between backend and frontend",
-                        "used vue2 with vue-bootstrap to create front end of the application"
+                        "used Python with SQLAlchemy to gather news, communicate with trading application and frontend",
+                        "used vue2 with vue-bootstrap to create frontend of the application",
+                        "built a wrapper around IB API that leverages asyncio to send and receive messages",
+                        "multi threaded architecture",
+                        "used websockets for fast communication between backend and frontend"
                     ]
                 }
             ]
