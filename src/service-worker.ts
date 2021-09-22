@@ -2,8 +2,9 @@ import { precacheAndRoute } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { CacheFirst } from 'workbox-strategies'
 import { ExpirationPlugin } from 'workbox-expiration'
+import { skipWaiting } from 'workbox-core'
 
-declare let self: ServiceWorkerGlobalScope
+declare let self: ServiceWorkerGlobalScope & { skipWaiting: typeof skipWaiting }
 
 precacheAndRoute(self.__WB_MANIFEST)
 
@@ -19,3 +20,7 @@ registerRoute(
         ],
     }),
 )
+
+addEventListener('install', () => {
+    self.skipWaiting()
+})
