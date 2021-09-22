@@ -7,14 +7,5 @@
 <script lang="ts">
 import { Vue } from 'vue-class-component'
 
-export default class About extends Vue {
-    mounted(): void {
-        let c = document.querySelector('.home-container') as HTMLElement
-        let b = document.getElementById('app') as Element
-        if (c) {
-            c.style.top = (-1 * b.scrollTop).toString() + 'px'
-        }
-        b.scrollTop = 0
-    }
-}
+export default class About extends Vue {}
 </script>

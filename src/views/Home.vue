@@ -1,6 +1,5 @@
 <template lang="pug">
-#cv-app.container.home-container
-    CssVariablesComponent(:cssVariables='cvData.cssVariables')
+#cv-app.container
     .header
         HeaderComponent(ref='headerComponent', :header='cvData.header')
     .left-column
@@ -11,61 +10,29 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options, setup } from 'vue-class-component'
-import { computed } from 'vue'
+import { Vue, Options } from 'vue-class-component'
 // Components
 import HeaderComponent from '@/components/Header.vue'
 import ColumnComponent from '@/components/Column.vue'
-import CssVariablesComponent from '@/components/CssVariables.vue'
 // Types
-// Libraries and Helpers
-import { useMeta } from 'vue-meta'
-// Data
-import cvData from '@/data/njd.json'
+import { CvData } from '@/types/types'
 
 @Options({
     components: {
         HeaderComponent,
         ColumnComponent,
-        CssVariablesComponent,
     },
+    props: ['cvData', 'prefersReducedMotion'],
 })
 export default class Home extends Vue {
-    cvData = cvData
-    themeColorIndex!: number
-    interval!: number
-
-    meta = setup(() => {
-        return useMeta(
-            computed(() => ({
-                title: `CV - ${this.cvData.header.name}` ?? 'CV',
-                description: `${this.cvData.header.name}'s Curriculum vitae`,
-            })),
-        )
-    })
+    cvData!: CvData
+    prefersReducedMotion!: boolean
 
     // Hooks
-    created(): void {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        cvData.cssVariables['photo'] = `url('${require(`@/assets/photos/${this.cvData.header.photo}`).default}')`
-    }
-
     mounted(): void {
-        if (!this.getPrefersReducedMotion()) {
-            if (window.sessionStorage.getItem('lastThemeColorIndex') !== null) {
-                this.setThemeColor(parseInt(window.sessionStorage.getItem('lastThemeColorIndex') as string))
-            } else {
-                this.initAnimation(parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000)
-            }
+        if (!this.prefersReducedMotion && window.sessionStorage.getItem('lastThemeColorIndex') === null) {
+            this.initAnimation(parseFloat(this.cvData.cssVariables.baseAnimationTime) * 1000)
         }
-
-        if (this.cvData.themeColors.length > 1 && !this.getPrefersReducedMotion()) {
-            this.interval = this.scrollAnimation(parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000)
-        }
-    }
-
-    beforeUnmount(): void {
-        clearInterval(this.interval)
     }
 
     // Methods
@@ -92,38 +59,11 @@ export default class Home extends Vue {
         }, 1.5 * baseAnimationTime)
     }
 
-    scrollAnimation(colorAnimationTime: number): number {
-        var h = document.documentElement
-        let b = document.body
-
-        return setInterval(() => {
-            let index = Math.ceil((h.scrollTop / (b.scrollHeight - h.clientHeight)) * this.cvData.themeColors.length)
-            this.setThemeColor(index > 1 ? index - 1 : 0)
-        }, colorAnimationTime)
-    }
-
-    setThemeColor(index: number): void {
-        if (index === this.themeColorIndex) {
-            return
-        }
-        if (index >= this.cvData.themeColors.length) {
-            index = 0
-        }
-        this.themeColorIndex = index
-        this.cvData.cssVariables.themeColor = this.cvData.themeColors[index]
-        window.sessionStorage.setItem('lastThemeColorIndex', index.toString())
-    }
-
-    getPrefersReducedMotion(): boolean {
-        const mediaQueryList = window.matchMedia('(prefers-reduced-motion: no-preference)')
-        return !mediaQueryList.matches
-    }
-
     getSections(sectionGroup: string): unknown {
         let sections: unknown[] = []
-        for (const sectionName of cvData.contentGroups[sectionGroup]) {
-            if (cvData.content[sectionName]) {
-                sections.push(cvData.content[sectionName])
+        for (const sectionName of this.cvData.contentGroups[sectionGroup]) {
+            if (this.cvData.content[sectionName]) {
+                sections.push(this.cvData.content[sectionName])
             }
         }
         return sections

@@ -121,10 +121,10 @@
                         "development of a meme generator for slack"
                     ],
                     "keyAccomplishments": [
-                        "integrated Symfony 2 and Doctrine within Prestashop",
-                        "Pioneered and developed gitlab-CI based CI/CD system for development, testing and deployment of ecommerce application and its subprojects resulting in zero downtime upgrade and ability for other teams to instantly make changes without jeopardising applications' integrity",
-                        "Created a unified, watertight error reporting system, resulting in a dramatically more stable application",
-                        "Developed a complex, extensible voucher system integrated with Prestashop, financial reporting system and multiple APIs",
+                        "Integrated Symfony 2 and Doctrine within Prestashop.",
+                        "Pioneered and developed gitlab-CI based CI/CD system for development, testing and deployment of ecommerce application and its subprojects resulting in zero downtime upgrade and ability for other teams to instantly make changes without jeopardising applications' integrity.",
+                        "created a unified, watertight error reporting system, resulting in a dramatically more stable application.",
+                        "Developed a complex, extensible voucher system integrated with Prestashop, financial reporting system and multiple APIs.",
                         "Created a unified developer environment as a response to 3 teams with different knowledge levels having to work on a single, complex project. Docker was chosen as it offers a (more or less) consistent behaviour across multiple operating systems. Created a documentation and organised training for all team members, which resulted in significantly more frictionless development across all 3 teams."
                     ]
                 },
