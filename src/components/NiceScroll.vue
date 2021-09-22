@@ -21,15 +21,17 @@ export default class NiceScrollComponent extends Vue {
     mounted(): void {
         this.niceEl = this.$refs.niceScrollbarElement as HTMLElement
 
-        this.$watch('$route', (to: RouteLocation, from: RouteLocation) => {
-            nextTick(() => {
-                this.setScroll(to, from, document.querySelector('.fade-leave-active') as HTMLElement)
+        if (getComputedStyle(this.niceEl)['display'] === 'block') {
+            this.$watch('$route', (to: RouteLocation, from: RouteLocation) => {
+                nextTick(() => {
+                    this.setScroll(to, from, document.querySelector('.fade-leave-active') as HTMLElement)
+                })
             })
-        })
 
-        window.addEventListener('scroll', this.scrollHandler)
-        this.scrollPosition()
-        this.scrollHandler()
+            window.addEventListener('scroll', this.scrollHandler)
+            this.scrollPosition()
+            this.scrollHandler()
+        }
     }
 
     beforeUnmount(): void {
@@ -90,25 +92,30 @@ export default class NiceScrollComponent extends Vue {
 </script>
 
 <style lang="sass">
-::-webkit-scrollbar
-    width: 12px
-    height: 12px
-
-::-webkit-scrollbar-thumb
-    background-color: transparent
-
-::-webkit-scrollbar-track
-    background: transparent
-
 .nice-scrollbar
-    width: 12px
-    transition: background-color var(--color-animation-time) ease-in-out, opacity var(--color-animation-time) ease-in-out
-    background-color: var(--theme-color)
-    opacity: 1
-    position: fixed
-    right: 0
-    top: 0
+    display: none
 
-    &.scrollbar-invisible
-        opacity: 0
+@media only screen and (hover: hover) and (pointer: fine)
+    ::-webkit-scrollbar
+        width: 12px
+        height: 12px
+
+    ::-webkit-scrollbar-thumb
+        background-color: transparent
+
+    ::-webkit-scrollbar-track
+        background: transparent
+
+    .nice-scrollbar
+        display: block
+        width: 12px
+        transition: background-color var(--color-animation-time) ease-in-out, opacity var(--color-animation-time) ease-in-out
+        background-color: var(--theme-color)
+        opacity: 1
+        position: fixed
+        right: 0
+        top: 0
+
+        &.scrollbar-invisible
+            opacity: 0
 </style>
