@@ -1,4 +1,7 @@
 <template lang="pug">
+//- #nav
+//-     router-link(to='/') Home
+//-     router-link(to='/about') About
 metainfo
     template(v-slot:title='{ content }')
 router-view(v-slot='{ Component }', :cvData='cvData', :prefersReducedMotion='prefersReducedMotion')
@@ -40,8 +43,12 @@ export default class App extends Vue {
 
     // Hooks
     created(): void {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        this.cvData.cssVariables['photo'] = `url('${require(`@/assets/photos/${this.cvData.header.photo}`).default}')`
+        if (this.cvData.header.photo) {
+            this.cvData.cssVariables['photo'] = `url('${
+                // eslint-disable-next-line @typescript-eslint/no-var-requires
+                require(`@/assets/photos/${this.cvData.header.photo}`).default
+            }')`
+        }
 
         if (window.sessionStorage.getItem('lastThemeColorIndex') !== null) {
             this.setThemeColor(parseInt(window.sessionStorage.getItem('lastThemeColorIndex') as string))
@@ -51,8 +58,13 @@ export default class App extends Vue {
     }
 
     mounted(): void {
+        let colorAnimationTime = parseFloat(this.cvData.cssVariables.colorAnimationTime)
         if (this.cvData.themeColors.length > 1 && !this.prefersReducedMotion) {
-            this.interval = this.scrollAnimation(parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000)
+            this.interval = this.scrollAnimation(colorAnimationTime)
+        } else {
+            setTimeout(() => {
+                this.setThemeColor(0)
+            }, colorAnimationTime)
         }
     }
 

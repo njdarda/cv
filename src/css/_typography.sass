@@ -1,6 +1,6 @@
 @use 'bootstrap' as b
 
-body
+html
     font-size: var(--font-size-base)
 
 #app > #cv-app
@@ -53,11 +53,12 @@ body
         width: 0px
         white-space: nowrap
 
-        +b.media-breakpoint-between(null, xl)
-            display: inline
-            width: auto
-            white-space: inherit
-            margin-right: inherit
+        @media screen
+            +b.media-breakpoint-between(null, xl)
+                display: inline
+                width: auto
+                white-space: inherit
+                margin-right: inherit
 
     .item-note
         font-size: 0.9em

@@ -26,8 +26,12 @@
                     strong.language-name {{ language.name }}:!{ ' ' }
                     span {{ language.level }}
 
-        template(v-else-if='section.list')
-            ListComponent.text(:list='section.list', :class='section.class')
+        template(v-else-if='section.courses')
+            template(v-for='course in section.courses')
+                h4 {{ course.organiser }}
+                ul.text
+                    li(v-for='courseName in course.children')
+                        | {{ courseName }}
 
         template(v-else-if='section.items', v-for='item in section.items')
             div(v-if='item.break', :class='"break-" + item.break')
@@ -36,8 +40,9 @@
                 .subsection-name.mb-1
                     h3
                         span.position {{ item.course }}
-                        br
-                        | {{ item.place }}
+                        span
+                            |
+                            | • {{ item.place }}
                 h3.time {{ item.time }}
                 h4 {{ item.degree }}:
                 span.text {{ item.specialisation }}
@@ -74,6 +79,9 @@
                         :list='item.keyAccomplishments'
                     )
                     p.text(v-else) {{ item.keyAccomplishments }}
+
+        template(v-else-if='section.list')
+            ListComponent.text(:list='section.list', :class='section.class')
 </template>
 
 <script lang="ts">

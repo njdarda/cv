@@ -7,7 +7,7 @@
     },
     "header": {
         "name": "Jędrzej Darda",
-        "photo": "njd.webp",
+        "photo": null,
         "links": [
             {
                 "name": "Website",
@@ -18,8 +18,8 @@
         ]
     },
     "contentGroups": {
-        "leftColumn": ["contacts", "skills", "languages", "education", "courses", "meetings", "hobbies"],
-        "rightColumn": ["experience", "personalProjects", "technicalSkills", "tools"]
+        "leftColumn": ["contacts", "skills", "languages", "meetings", "hobbies"],
+        "rightColumn": ["experience", "education", "courses", "personalProjects", "technicalSkills", "tools"]
     },
     "content": {
         "contacts": {
@@ -50,6 +50,7 @@
             ]
         },
         "personalProjects": {
+            "break": "page",
             "name": "Personal projects",
             "items": [
                 {
@@ -66,7 +67,6 @@
                         "built an app using modern front-end technologies: Vue 3, Webpack 5, Sass, Pug",
                         "ensured website is responsive and renders correctly on any display size",
                         "ensured website can be printed using media queries",
-                        "ensured website is fast and responsive but remain attractive using animations",
                         "used GitHub pages to host the website"
                     ]
                 },
@@ -77,9 +77,9 @@
                     "features": [
                         "used Python with SQLAlchemy to gather news, communicate with trading application and frontend",
                         "used vue2 with vue-bootstrap to create frontend of the application",
+                        "used websockets for fast communication between backend and frontend",
                         "built a wrapper around IB API that leverages asyncio to send and receive messages",
-                        "multi threaded architecture",
-                        "used websockets for fast communication between backend and frontend"
+                        "used multi threaded architecture"
                     ]
                 }
             ]
@@ -123,12 +123,13 @@
                     "keyAccomplishments": [
                         "Integrated Symfony 2 and Doctrine within Prestashop.",
                         "Pioneered and developed gitlab-CI based CI/CD system for development, testing and deployment of ecommerce application and its subprojects resulting in zero downtime upgrade and ability for other teams to instantly make changes without jeopardising applications' integrity.",
-                        "created a unified, watertight error reporting system, resulting in a dramatically more stable application.",
+                        "Created a unified, watertight error reporting system, resulting in a dramatically more stable application.",
                         "Developed a complex, extensible voucher system integrated with Prestashop, financial reporting system and multiple APIs.",
-                        "Created a unified developer environment as a response to 3 teams with different knowledge levels having to work on a single, complex project. Docker was chosen as it offers a (more or less) consistent behaviour across multiple operating systems. Created a documentation and organised training for all team members, which resulted in significantly more frictionless development across all 3 teams."
+                        "Created a unified developer environment for 3 teams with different knowledge levels. Docker was chosen as it offers a (more or less) consistent behaviour across multiple operating systems. Created a documentation and organised training for all team members, which resulted in significantly more frictionless development across all 3 teams."
                     ]
                 },
                 {
+                    "break": "page",
                     "position": "PHP Developer",
                     "place": "Boostcom",
                     "time": "01-2016 - 04-2016",
@@ -282,12 +283,13 @@
             "list": ["PHPers Kraków", "pykonik", "What the Hack 2018", "PHPERS SUMMIT 2019"]
         },
         "languages": {
+            "break": "page",
             "name": "Languages",
             "languages": [
                 { "name": "Polish", "level": "Native" },
                 { "name": "English", "level": "C1 - Proficient" },
-                { "name": "Spanish", "level": "A1 - Communicative" },
-                { "name": "German, Russian", "level": "Basic" }
+                { "name": "Spanish", "level": "A1" },
+                { "name": "German", "level": "Basic" }
             ]
         },
         "hobbies": {
@@ -304,6 +306,7 @@
             ]
         },
         "technicalSkills": {
+            "break": "page",
             "name": "Technical skills",
             "class": "two-column-list no-indent",
             "list": [

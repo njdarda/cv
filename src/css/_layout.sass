@@ -27,18 +27,19 @@ body
         z-index: 9999
 
     & > #cv-app
-        position: absolute
-        top: 0
-        left: 50%
-        transform: translateX(-50%)
-        min-height: 100vh
-        background-color: b.$white
-        box-shadow: 0px 0px 55px -40px b.$black
-        backface-visibility: hidden
+        @media screen
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translateX(-50%)
+            min-height: 100vh
+            box-shadow: 0px 0px 55px -40px b.$black
+            backface-visibility: hidden
 
+        background-color: b.$white
         display: grid
         grid-template-columns: 1fr 2fr
-        grid-template-rows: 260px 1fr
+        grid-template-rows: auto 1fr
         gap: 0px 0px
         grid-template-areas: 'header header' 'left-column right-column'
 
@@ -50,8 +51,10 @@ body
         .left-column
             grid-area: left-column
 
+            &.has-photo
+                padding-top: calc(4 * #{b.$spacer})
+
             & > .column-component
-                padding-top: 64px
                 padding-right: calc(2 * #{b.$spacer})
 
         .right-column
@@ -80,26 +83,35 @@ body
         .two-column-list
             column-count: 2
 
+        // breaks
         .break-section,
         .break-page
             display: none
-            & + *
+
+        .break-section + *
+            @media screen
                 break-before: column
 
-        +b.media-breakpoint-between(md, lg)
-            .two-column-list
-                column-count: 1
+        .break-page + *
+            @media print
+                page-break-before: always
+                margin-top: calc(3 * #{b.$spacer}) !important
 
-            .break-section,
-            .break-page
-                & + *
-                    break-before: auto
+        @media screen
+            +b.media-breakpoint-between(md, lg)
+                .two-column-list
+                    column-count: 1
 
-        +b.media-breakpoint-between(null, sm)
-            .two-column-list
-                column-count: 1
+                .break-section,
+                .break-page
+                    & + *
+                        break-before: auto
 
-            .break-section,
-            .break-page
-                & + *
-                    break-before: auto
+            +b.media-breakpoint-between(null, sm)
+                .two-column-list
+                    column-count: 1
+
+                .break-section,
+                .break-page
+                    & + *
+                        break-before: auto

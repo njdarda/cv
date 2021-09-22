@@ -2,7 +2,7 @@
 #cv-app.container
     .header
         HeaderComponent(ref='headerComponent', :header='cvData.header')
-    .left-column
+    .left-column(:class='cvData.header.photo ? "has-photo" : ""')
         ColumnComponent(:sections='getSections("leftColumn")')
     .right-column
         ColumnComponent(:sections='getSections("rightColumn")')
@@ -48,14 +48,14 @@ export default class Home extends Vue {
             }
         }, 3 * baseAnimationTime)
 
-        let headerWrapper = (this.$refs.headerComponent as Vue).$refs.headerWrapper as Element
+        let headerEl = (this.$refs.headerComponent as Vue).$el as Element
 
         setTimeout(() => {
-            headerWrapper.classList.add('init-animation')
+            headerEl.classList.add('init-animation')
         }, baseAnimationTime)
 
         setTimeout(() => {
-            headerWrapper.classList.remove('init-animation')
+            headerEl.classList.remove('init-animation')
         }, 1.5 * baseAnimationTime)
     }
 

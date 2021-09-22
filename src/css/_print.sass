@@ -1,7 +1,5 @@
 @use 'bootstrap' as b
 
-$print-margin: 1.6cm
-
 @media screen
     #header,
     #footer
@@ -9,10 +7,7 @@ $print-margin: 1.6cm
 
 @media print
     $page-width: 210mm
-    $page-height: 272mm
-
-    :root
-        --font-family-headings: var(--font-family-headings-print)
+    $page-height: 297mm
 
     @page
         size: $page-width $page-height
@@ -21,7 +16,7 @@ $print-margin: 1.6cm
     #footer
         position: fixed
         left: 0
-        bottom: calc(2 / 3 * #{$print-margin})
+        bottom: calc(3 * #{b.$spacer})
         width: 100%
         text-align: center
         color: b.$gray-600
@@ -31,27 +26,3 @@ $print-margin: 1.6cm
         width: $page-width
         height: $page-height
         -webkit-print-color-adjust: exact
-
-    .break-section,
-    .break-page
-        display: none
-        & + *
-            page-break-before: always
-
-    .break-page + *
-        margin-top: $print-margin !important
-
-    // overrides
-    #cv-app
-        padding: calc(3 * #{b.$spacer}) $print-margin 0 $print-margin
-
-        .header-component
-            div.header-bar
-                filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.4))
-
-            div.photo
-                filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.4))
-
-        .column-component
-            .badge
-                filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.4))
