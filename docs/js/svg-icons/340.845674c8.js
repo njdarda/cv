@@ -1,0 +1,1 @@
+(self["webpackChunkcv"]=self["webpackChunkcv"]||[]).push([[37420],{65110:function(c){c.exports='<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8"></circle></svg>'}}]);
