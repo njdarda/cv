@@ -17,6 +17,7 @@
             }
         ]
     },
+    "footer": null,
     "contentGroups": {
         "leftColumn": ["contacts", "skills", "languages", "meetings", "hobbies"],
         "rightColumn": ["experience", "education", "courses", "personalProjects", "technicalSkills", "tools"]
@@ -135,8 +136,7 @@
                     "time": "01-2016 - 04-2016",
                     "responsibilities": [
                         "maintenance of an undocumented legacy information service integrated with multiple external APIs",
-                        "checking the correctness of accounting entries",
-                        "general accounting related work such as preparation of documentations, record keeping and accounting transactions"
+                        "adding functionalities to REST API based administration panel of a loyalty application"
                     ],
                     "keyAccomplishments": "The loyalty application used to only support one language. Its frontend and backend had separate sources of localised strings, none of which were available to the translation team - they had to be manually prepared and sent by developers. Updating translations required a new release of application.\nI successfully pitched to the management, developed and implemented a multilanguage system where translations would be readily available to the translation team and would update immediately after their changes."
                 },
@@ -145,8 +145,7 @@
                     "place": "Quatronet",
                     "time": "09.2015 - 01-2016",
                     "responsibilities": [
-                        "development of a Prestashop based e-commerce website based on specification and design",
-                        "adding functionalities to REST API based administration panel of a loyalty application"
+                        "development of a Prestashop based e-commerce website based on specification and design"
                     ],
                     "keyAccomplishments": "Created a heavily customised Prestashop theme with complex animations."
                 }
@@ -350,7 +349,7 @@
                         {
                             "break": "section",
                             "name": "Python",
-                            "children": ["asyncio", "sqlAlchemy, alembic", "Flask", "jinja"]
+                            "children": ["asyncio", "SQLAlchemy, alembic", "Flask", "jinja"]
                         },
                         {
                             "name": "SQL",

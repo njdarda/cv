@@ -6,7 +6,7 @@
         ColumnComponent(:sections='getSections("leftColumn")')
     .right-column
         ColumnComponent(:sections='getSections("rightColumn")')
-    footer#footer Footer
+    footer#footer {{ cvData.footer }}
 </template>
 
 <script lang="ts">
