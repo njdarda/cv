@@ -14,11 +14,8 @@ export default class SvgIconComponent extends Vue {
     created(): void {
         import(
             /* webpackInclude: /\.svg$/ */
-            /* webpackExclude: /\/calendar.*$/ */
             /* webpackChunkName: "svg-icons\/" */
             /* webpackMode: "lazy" */
-            /* webpackPrefetch: false */
-            /* webpackPreload: false */
             '~/bootstrap-icons/icons/' + this.icon + '.svg'
         ).then((svg) => {
             this.html = (

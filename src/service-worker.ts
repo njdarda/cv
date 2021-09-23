@@ -5,8 +5,9 @@ import { ExpirationPlugin } from 'workbox-expiration'
 import { skipWaiting } from 'workbox-core'
 
 declare let self: ServiceWorkerGlobalScope & { skipWaiting: typeof skipWaiting }
+const manifest = self.__WB_MANIFEST
 
-precacheAndRoute(self.__WB_MANIFEST)
+precacheAndRoute(manifest)
 
 registerRoute(
     ({ request }) => request.destination === 'font',

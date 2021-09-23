@@ -10,6 +10,9 @@ module.exports = {
     pwa: {
         workboxPluginMode: 'InjectManifest',
         workboxOptions: {
+            exclude: [
+                /\/svg-icons\/.*\.js(?:\.map)?$/,
+            ],
             swSrc: './src/service-worker.ts',
         },
     },
