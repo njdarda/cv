@@ -10,13 +10,14 @@ const manifest = self.__WB_MANIFEST
 precacheAndRoute(manifest)
 
 registerRoute(
-    ({ request }) => request.destination === 'font',
+    ({ url, request }) => {
+        return /\/no-sw-precache\//.test(url.pathname) || ['image', 'font'].includes(request.destination)
+    },
     new CacheFirst({
-        cacheName: 'fonts',
+        cacheName: 'non-critical',
         plugins: [
             new ExpirationPlugin({
-                maxEntries: 60,
-                maxAgeSeconds: 30 * 24 * 60 * 60,
+                maxAgeSeconds: 14 * 24 * 60 * 60,
             }),
         ],
     }),

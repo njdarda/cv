@@ -11,7 +11,10 @@ module.exports = {
         workboxPluginMode: 'InjectManifest',
         workboxOptions: {
             exclude: [
-                /\/svg-icons\/.*\.js(?:\.map)?$/,
+                /\/no-sw-precache\//,
+                /img\//,
+                'index.html',
+                'robots.txt',
             ],
             swSrc: './src/service-worker.ts',
         },
