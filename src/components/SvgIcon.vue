@@ -8,18 +8,24 @@ import { VNode, h } from 'vue'
 })
 export default class SvgIconComponent extends Vue {
     icon!: string
+    html = ''
 
     // Hooks
-    render(): VNode {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        let svg = require('~/bootstrap-icons/icons/' + this.icon + '.svg')
+    created(): void {
+        import('~/bootstrap-icons/icons/' + this.icon + '.svg').then((svg) => {
+            this.html = (
+                document.createRange().createContextualFragment(svg.default).firstChild as HTMLElement
+            ).innerHTML
+        })
+    }
 
+    render(): VNode {
         return h('svg', {
             class: ['bi', 'bi-' + this.icon],
             xmlns: 'http://www.w3.org/2000/svg',
             fill: 'currentColor',
             viewBox: '0 0 16 16',
-            innerHTML: (document.createRange().createContextualFragment(svg).firstChild as HTMLElement).innerHTML,
+            innerHTML: this.html,
         })
     }
 }
