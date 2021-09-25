@@ -1,10 +1,10 @@
 <template lang="pug">
 #cv-app.container
-    .header
+    div.header
         HeaderComponent(ref='headerComponent', :header='cvData.header')
-    .left-column(:class='cvData.header.photo ? "has-photo" : ""')
+    div.left-column(:class='cvData.header.photo ? "has-photo" : ""')
         ColumnComponent(:sections='getSections("leftColumn")')
-    .right-column
+    div.right-column
         ColumnComponent(:sections='getSections("rightColumn")')
     footer#footer {{ cvData.footer }}
 </template>
