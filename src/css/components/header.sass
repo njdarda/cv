@@ -1,111 +1,113 @@
-@use 'bootstrap' as b
+@use '~bootstrap/scss/bootstrap' as b
+
+$spacer: b.$spacer
 
 #app > #cv-app > .header > .header-component
-    perspective: 180px
+  perspective: 180px
 
-    &.has-photo
-        padding-top: calc(3.5 * #{b.$spacer})
-        padding-bottom: calc(2 * #{b.$spacer})
+  &.has-photo
+    padding-top: calc(3.5 * #{$spacer})
+    padding-bottom: calc(2 * #{$spacer})
+
+  @media screen
+    +b.media-breakpoint-between(null, md)
+      text-align: center
+      height: auto
+      margin-bottom: b.$spacer
+
+  @media screen
+    +b.media-breakpoint-between(md, null)
+      &:hover,
+      &.init-animation
+        div.photo
+          transform: rotateX(0.5deg) scale(1.05)
+          box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
+
+          & > .shine
+            background-position-y: 80%
+
+        div.header-bar
+          transform: rotateX(0.5deg) scale(1.05)
+          box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
+
+  $photo-size: 18rem
+
+  div.photo
+    width: $photo-size
+    height: $photo-size
+    border-radius: 50%
+    border: 10px solid var(--theme-color)
+    background-color: b.$white
+    overflow: hidden
+    position: absolute
+    z-index: 1
+    top: 0
+    left: 0
+
+    transition: box-shadow calc(0.5 * var(--base-animation-time)) ease-in-out, transform calc(0.5 * var(--base-animation-time)) ease-in-out, border-color var(--color-animation-time) ease-in-out
+    transform: rotateX(0) scale(1)
+    transform-origin: 100% 100%
+    box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%)
 
     @media screen
-        +b.media-breakpoint-between(null, md)
-            text-align: center
-            height: auto
-            margin-bottom: b.$spacer
-
-    @media screen
-        +b.media-breakpoint-between(md, null)
-            &:hover,
-            &.init-animation
-                div.photo
-                    transform: rotateX(0.5deg) scale(1.05)
-                    box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
-
-                    & > .shine
-                        background-position-y: 80%
-
-                div.header-bar
-                    transform: rotateX(0.5deg) scale(1.05)
-                    box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
-
-    $photo-size: 18rem
-
-    div.photo
-        width: $photo-size
-        height: $photo-size
-        border-radius: 50%
-        border: 10px solid var(--theme-color)
-        background-color: b.$white
-        overflow: hidden
-        position: absolute
-        z-index: 1
-        top: 0
-        left: 0
-
-        transition: box-shadow calc(0.5 * var(--base-animation-time)) ease-in-out, transform calc(0.5 * var(--base-animation-time)) ease-in-out, border-color var(--color-animation-time) ease-in-out
-        transform: rotateX(0) scale(1)
-        transform-origin: 100% 100%
-        box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%)
-
-        @media screen
-            +b.media-breakpoint-between(null, md)
-                position: relative
-                z-index: 0
-                display: inline-block
-
-        & > div
-            height: 100%
-            width: 100%
-            position: absolute
-            top: 0
-            left: 0
-
-        & > .image
-            background-image: var(--photo)
-            background-size: cover
-
-        & > .shine
-            transition: background-position-y calc(0.5 * var(--base-animation-time)) ease-in-out
-            background: linear-gradient(0deg, transparent 0%, transparent 34%, rgba(255,255,255,10%) 36%, b.$white 80%)
-            background-position-y: 100%
-            background-size: 100% 300%
-
-    &.has-photo div.header-bar
-        margin-left: calc(0.5 * #{$photo-size})
-        width: calc(100% - 0.5 * #{$photo-size})
-        text-align: right
-
-    div.header-bar
-        color: white
+      +b.media-breakpoint-between(null, md)
         position: relative
-        padding: b.$spacer
-        background-color: var(--theme-color)
-        border-radius: 0.5em
-        margin-bottom: calc(3 * #{b.$spacer})
+        z-index: 0
+        display: inline-block
 
-        transition: box-shadow calc(0.5 * var(--base-animation-time)) ease-in-out, transform calc(0.5 * var(--base-animation-time)) ease-in-out, background-color var(--color-animation-time) ease-in-out
-        background-position-y: 100%
-        background-size: 100% 300%
+    & > div
+      height: 100%
+      width: 100%
+      position: absolute
+      top: 0
+      left: 0
 
-        transform: rotateX(0) scale(1)
-        box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%)
+    & > .image
+      background-image: var(--photo)
+      background-size: cover
 
-        @media screen
-            +b.media-breakpoint-between(null, md)
-                display: inline-block
-                top: 0
-                width: 100%
-                margin: 0
-                text-align: center
+    & > .shine
+      transition: background-position-y calc(0.5 * var(--base-animation-time)) ease-in-out
+      background: linear-gradient(0deg, transparent 0%, transparent 34%, rgba(255, 255, 255, 10%) 36%, b.$white 80%)
+      background-position-y: 100%
+      background-size: 100% 300%
 
-        & > h2
-            font-size: 1.3em
+  &.has-photo div.header-bar
+    margin-left: calc(0.5 * #{$photo-size})
+    width: calc(100% - 0.5 * #{$photo-size})
+    text-align: right
 
-            & > a
-                font-size: 1em
-                color: b.$black
-                text-transform: uppercase
-                text-decoration: none
+  div.header-bar
+    color: white
+    position: relative
+    padding: b.$spacer
+    background-color: var(--theme-color)
+    border-radius: 0.5em
+    margin-bottom: calc(3 * #{$spacer})
 
-                & > span
-                    text-decoration: underline
+    transition: box-shadow calc(0.5 * var(--base-animation-time)) ease-in-out, transform calc(0.5 * var(--base-animation-time)) ease-in-out, background-color var(--color-animation-time) ease-in-out
+    background-position-y: 100%
+    background-size: 100% 300%
+
+    transform: rotateX(0) scale(1)
+    box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%)
+
+    @media screen
+      +b.media-breakpoint-between(null, md)
+        display: inline-block
+        top: 0
+        width: 100%
+        margin: 0
+        text-align: center
+
+    & > h2
+      font-size: 1.3em
+
+      & > a
+        font-size: 1em
+        color: b.$black
+        text-transform: uppercase
+        text-decoration: none
+
+        & > span
+          text-decoration: underline

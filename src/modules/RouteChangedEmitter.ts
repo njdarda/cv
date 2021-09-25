@@ -7,5 +7,6 @@ export default function (): { watch: (component: Vue) => void } {
             component.$emit('route-changed', to, from, component.$el)
         })
     }
+
     return { watch }
 }

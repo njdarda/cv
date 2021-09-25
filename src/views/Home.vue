@@ -59,13 +59,14 @@ export default class Home extends Vue {
         }, 1.5 * baseAnimationTime)
     }
 
-    getSections(sectionGroup: string): unknown {
+    getSections(sectionGroup: string): unknown[] {
         let sections: unknown[] = []
         for (const sectionName of this.cvData.contentGroups[sectionGroup]) {
             if (this.cvData.content[sectionName]) {
                 sections.push(this.cvData.content[sectionName])
             }
         }
+
         return sections
     }
 }

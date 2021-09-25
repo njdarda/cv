@@ -1,9 +1,8 @@
 <template lang="pug">
-//- #nav
-//-     router-link(to='/') Home
-//-     router-link(to='/about') About
-metainfo
-    template(v-slot:title='{ content }')
+#nav
+    router-link(to='/') Home
+    router-link(to='/about') About
+metainfo(v-slot:title='{ content }')
 router-view(v-slot='{ Component }', :cvData='cvData', :prefersReducedMotion='prefersReducedMotion')
     transition(name='fade')
         component(:is='Component')
@@ -58,7 +57,7 @@ export default class App extends Vue {
     }
 
     mounted(): void {
-        let colorAnimationTime = parseFloat(this.cvData.cssVariables.colorAnimationTime)
+        let colorAnimationTime = parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000
         if (this.cvData.themeColors.length > 1 && !this.prefersReducedMotion) {
             this.interval = this.scrollAnimation(colorAnimationTime)
         } else {
@@ -74,7 +73,7 @@ export default class App extends Vue {
 
     // Methods
     scrollAnimation(colorAnimationTime: number): number {
-        var h = document.documentElement
+        let h = document.documentElement
         let b = document.body
 
         return setInterval(() => {
@@ -103,5 +102,5 @@ export default class App extends Vue {
 </script>
 
 <style lang="sass">
-@import '@/css/app.sass'
+@import '../src/css/app.sass'
 </style>

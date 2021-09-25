@@ -158,26 +158,26 @@
                 {
                     "name": "Testing",
                     "children": [
-                        { "name": "phpunit", "professional": true },
-                        { "name": "pytest", "professional": true },
-                        { "name": "selenium", "professional": true },
-                        { "name": "Postman", "professional": true },
-                        { "name": "browserstack", "professional": true }
+                        {"name": "phpunit", "professional": true},
+                        {"name": "pytest", "professional": true},
+                        {"name": "selenium", "professional": true},
+                        {"name": "Postman", "professional": true},
+                        {"name": "browserstack", "professional": true}
                     ]
                 },
                 {
                     "name": "Error logging and profiling",
                     "children": [
-                        { "name": "New Relic", "professional": true },
-                        { "name": "Sentry", "professional": true },
-                        { "name": "ELK stack", "professional": true }
+                        {"name": "New Relic", "professional": true},
+                        {"name": "Sentry", "professional": true},
+                        {"name": "ELK stack", "professional": true}
                     ]
                 },
                 {
                     "name": "IDE",
                     "children": [
-                        { "name": "PHPStorm, PyCharm", "professional": true },
-                        { "name": "VScode", "professional": true },
+                        {"name": "PHPStorm, PyCharm", "professional": true},
+                        {"name": "VScode", "professional": true},
                         "VIM",
                         "Visual Studio"
                     ]
@@ -185,27 +185,26 @@
                 {
                     "name": "Application deployment and maintenance",
                     "children": [
-                        { "name": "GitlabCI", "professional": true },
-                        { "name": "Docker, Vagrant [unison, wsl, winnfsd]", "professional": true },
-                        { "name": "Jenkins", "professional": true },
-                        { "name": "teamcity", "professional": true },
-                        { "name": "ansible", "professional": true },
+                        {"name": "GitlabCI", "professional": true},
+                        {"name": "Docker, Vagrant [unison, wsl, winnfsd]", "professional": true},
+                        {"name": "Jenkins", "professional": true},
+                        {"name": "teamcity", "professional": true},
+                        {"name": "ansible", "professional": true},
                         "terraform, kubernetes, helm",
                         "Google Cloud Platform",
                         "Apache, nginx"
                     ]
                 },
-
                 {
                     "break": "section",
                     "name": "Team organisation and workflow",
                     "children": [
-                        { "name": "Git", "professional": true },
-                        { "name": "Upsource", "professional": true },
-                        { "name": "Slack", "professional": true },
-                        { "name": "youtrack", "professional": true },
-                        { "name": "asana", "professional": true },
-                        { "name": "redmine", "professional": true }
+                        {"name": "Git", "professional": true},
+                        {"name": "Upsource", "professional": true},
+                        {"name": "Slack", "professional": true},
+                        {"name": "youtrack", "professional": true},
+                        {"name": "asana", "professional": true},
+                        {"name": "redmine", "professional": true}
                     ]
                 },
                 {
@@ -285,10 +284,10 @@
             "break": "page",
             "name": "Languages",
             "languages": [
-                { "name": "Polish", "level": "Native" },
-                { "name": "English", "level": "C1 - Proficient" },
-                { "name": "Spanish", "level": "A1" },
-                { "name": "German", "level": "Basic" }
+                {"name": "Polish", "level": "Native"},
+                {"name": "English", "level": "C1 - Proficient"},
+                {"name": "Spanish", "level": "A1"},
+                {"name": "German", "level": "Basic"}
             ]
         },
         "hobbies": {
@@ -319,16 +318,16 @@
                                     "name": "Symfony2, Symfony3",
                                     "professional": true
                                 },
-                                { "name": "Prestashop", "professional": true },
-                                { "name": "Doctrine 2", "professional": true },
-                                { "name": "Propel", "professional": true },
-                                { "name": "Zend 2", "professional": true },
-                                { "name": "Smarty", "professional": true },
-                                { "name": "Twig", "professional": true },
-                                { "name": "XDebug", "professional": true },
-                                { "name": "Composer", "professional": true },
-                                { "name": "OPcache", "professional": true },
-                                { "name": "Resque (Redis)", "professional": true }
+                                {"name": "Prestashop", "professional": true},
+                                {"name": "Doctrine 2", "professional": true},
+                                {"name": "Propel", "professional": true},
+                                {"name": "Zend 2", "professional": true},
+                                {"name": "Smarty", "professional": true},
+                                {"name": "Twig", "professional": true},
+                                {"name": "XDebug", "professional": true},
+                                {"name": "Composer", "professional": true},
+                                {"name": "OPcache", "professional": true},
+                                {"name": "Resque (Redis)", "professional": true}
                             ]
                         },
                         {
@@ -338,11 +337,11 @@
                                     "name": "vue2",
                                     "children": ["vue-bootstrap"]
                                 },
-                                { "name": "jQuery", "professional": true },
-                                { "name": "NodeJS/npm", "professional": true, "children": ["express"] },
-                                { "name": "AngularJS 1.5", "professional": true },
+                                {"name": "jQuery", "professional": true},
+                                {"name": "NodeJS/npm", "professional": true, "children": ["express"]},
+                                {"name": "AngularJS 1.5", "professional": true},
                                 "Mithril",
-                                { "name": "Gulp", "professional": true },
+                                {"name": "Gulp", "professional": true},
                                 "Webpack"
                             ]
                         },
@@ -354,8 +353,8 @@
                         {
                             "name": "SQL",
                             "children": [
-                                { "name": "MySQL", "professional": true },
-                                { "name": "PostreSQL", "professional": true }
+                                {"name": "MySQL", "professional": true},
+                                {"name": "PostreSQL", "professional": true}
                             ]
                         },
                         {
@@ -365,15 +364,15 @@
                         {
                             "name": "CSS3",
                             "children": [
-                                { "name": "Bootstrap 4", "professional": true },
+                                {"name": "Bootstrap 4", "professional": true},
                                 "Foundation",
                                 "SCSS, Sass, Compass"
                             ]
                         },
-                        { "name": "Bash", "professional": true },
+                        {"name": "Bash", "professional": true},
                         "Markdown",
                         "VBA",
-                        { "name": "WSDL", "professional": true }
+                        {"name": "WSDL", "professional": true}
                     ]
                 }
             ]

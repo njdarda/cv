@@ -1,117 +1,119 @@
 @use 'sass:color'
-@use 'bootstrap' as b
+@use '~bootstrap/scss/bootstrap' as b
+
+$spacer: b.$spacer
 
 body
-    overflow-y: overlay
-    overflow-x: hidden
+  overflow-y: scroll
+  overflow-x: hidden
 
 #app
-    position: relative
-    width: 100vw
-    height: 100vh
-    z-index: 0
+  position: relative
+  width: 100vw
+  height: 100vh
+  z-index: 0
+
+  @media screen
+    &::after
+      content: ''
+      z-index: -1
+      top: 0
+      left: 0
+      position: fixed
+      width: 100vw
+      height: 100vh
+      background: radial-gradient(circle at center, b.$gray-100 35%, b.$gray-600 150%)
+
+  & > #nav
+    position: fixed
+    z-index: 9999
+
+  & > #cv-app
+    @media screen
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+      min-height: 100vh
+      box-shadow: 0px 0px 55px -40px b.$black
+      backface-visibility: hidden
+
+    background-color: b.$white
+    display: grid
+    grid-template-columns: 1fr 2fr
+    grid-template-rows: auto 1fr
+    gap: 0px 0px
+    grid-template-areas: 'header header' 'left-column right-column'
+
+    padding: calc(3 * #{$spacer})
+
+    .header
+      grid-area: header
+
+    .left-column
+      grid-area: left-column
+
+      &.has-photo
+        padding-top: calc(4 * #{$spacer})
+
+      & > .column-component
+        padding-right: calc(2 * #{$spacer})
+
+    .right-column
+      grid-area: right-column
+      z-index: 1
+
+      & > .column-component
+        padding-left: calc(1.5 * #{$spacer})
+
+    svg[class^="bi-"],
+    svg[class*=" bi-"]
+      display: inline-block
+      line-height: 1
+      vertical-align: -.125em
+      width: 1em
 
     @media screen
-        &::after
-            content: ''
-            z-index: -1
-            top: 0
-            left: 0
-            position: fixed
-            width: 100vw
-            height: 100vh
-            background: radial-gradient(circle at center, b.$gray-100 35%, b.$gray-600 150%)
+      +b.media-breakpoint-between(null, md)
+        display: block
+        padding: b.$spacer
 
-    & > #nav
-        position: fixed
-        z-index: 9999
+        .left-column > .column-component,
+        .right-column > .column-component
+          padding: 0
 
-    & > #cv-app
-        @media screen
-            position: absolute
-            top: 0
-            left: 50%
-            transform: translateX(-50%)
-            min-height: 100vh
-            box-shadow: 0px 0px 55px -40px b.$black
-            backface-visibility: hidden
+    .two-column-list
+      column-count: 2
 
-        background-color: b.$white
-        display: grid
-        grid-template-columns: 1fr 2fr
-        grid-template-rows: auto 1fr
-        gap: 0px 0px
-        grid-template-areas: 'header header' 'left-column right-column'
+    // breaks
+    .break-section,
+    .break-page
+      display: none
 
-        padding: calc(3 * #{b.$spacer})
+    .break-section + *
+      @media screen
+        break-before: column
 
-        .header
-            grid-area: header
+    .break-page + *
+      @media print
+        page-break-before: always
+        margin-top: calc(3 * #{$spacer}) !important
 
-        .left-column
-            grid-area: left-column
-
-            &.has-photo
-                padding-top: calc(4 * #{b.$spacer})
-
-            & > .column-component
-                padding-right: calc(2 * #{b.$spacer})
-
-        .right-column
-            grid-area: right-column
-            z-index: 1
-
-            & > .column-component
-                padding-left: calc(1.5 * #{b.$spacer})
-
-        svg[class^="bi-"],
-        svg[class*=" bi-"]
-            display: inline-block
-            line-height: 1
-            vertical-align: -.125em
-            width: 1em
-
-        @media screen
-            +b.media-breakpoint-between(null, md)
-                display: block
-                padding: b.$spacer
-
-                .left-column > .column-component,
-                .right-column > .column-component
-                    padding: 0
-
+    @media screen
+      +b.media-breakpoint-between(md, lg)
         .two-column-list
-            column-count: 2
+          column-count: 1
 
-        // breaks
         .break-section,
         .break-page
-            display: none
+          & + *
+            break-before: auto
 
-        .break-section + *
-            @media screen
-                break-before: column
+      +b.media-breakpoint-between(null, sm)
+        .two-column-list
+          column-count: 1
 
-        .break-page + *
-            @media print
-                page-break-before: always
-                margin-top: calc(3 * #{b.$spacer}) !important
-
-        @media screen
-            +b.media-breakpoint-between(md, lg)
-                .two-column-list
-                    column-count: 1
-
-                .break-section,
-                .break-page
-                    & + *
-                        break-before: auto
-
-            +b.media-breakpoint-between(null, sm)
-                .two-column-list
-                    column-count: 1
-
-                .break-section,
-                .break-page
-                    & + *
-                        break-before: auto
+        .break-section,
+        .break-page
+          & + *
+            break-before: auto

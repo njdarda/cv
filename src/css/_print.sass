@@ -1,28 +1,30 @@
-@use 'bootstrap' as b
+@use '~bootstrap/scss/bootstrap' as b
+
+$spacer: b.$spacer
 
 @media screen
-    #header,
-    #footer
-        display: none
+  #header,
+  #footer
+    display: none
 
 @media print
-    $page-width: 210mm
-    $page-height: 297mm
+  $page-width: 210mm
+  $page-height: 297mm
 
-    @page
-        size: $page-width $page-height
-        margin: 0
+  @page
+    size: $page-width $page-height
+    margin: 0
 
-    #footer
-        position: fixed
-        left: 0
-        bottom: calc(3 * #{b.$spacer})
-        width: 100%
-        text-align: center
-        color: b.$gray-600
+  #footer
+    position: fixed
+    left: 0
+    bottom: calc(3 * #{$spacer})
+    width: 100%
+    text-align: center
+    color: b.$gray-600
 
-    html,
-    body
-        width: $page-width
-        height: $page-height
-        -webkit-print-color-adjust: exact
+  html,
+  body
+    width: $page-width
+    height: $page-height
+    -webkit-print-color-adjust: exact

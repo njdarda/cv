@@ -93,29 +93,29 @@ export default class NiceScrollComponent extends Vue {
 
 <style lang="sass">
 .nice-scrollbar
-    display: none
+  display: none
 
 @media only screen and (hover: hover) and (pointer: fine)
-    ::-webkit-scrollbar
-        width: 12px
-        height: 12px
+  ::-webkit-scrollbar
+    width: 12px
+    height: 12px
 
-    ::-webkit-scrollbar-thumb
-        background-color: transparent
+  ::-webkit-scrollbar-thumb
+    background-color: transparent
 
-    ::-webkit-scrollbar-track
-        background: transparent
+  ::-webkit-scrollbar-track
+    background: transparent
 
-    .nice-scrollbar
-        display: block
-        width: 12px
-        transition: background-color var(--color-animation-time) ease-in-out, opacity var(--color-animation-time) ease-in-out
-        background-color: var(--theme-color)
-        opacity: 1
-        position: fixed
-        right: 0
-        top: 0
+  .nice-scrollbar
+    display: block
+    width: 12px
+    transition: background-color var(--color-animation-time) ease-in-out, opacity var(--color-animation-time) ease-in-out
+    background-color: var(--theme-color)
+    opacity: 1
+    position: fixed
+    right: 0
+    top: 0
 
-        &.scrollbar-invisible
-            opacity: 0
+    &.scrollbar-invisible
+      opacity: 0
 </style>

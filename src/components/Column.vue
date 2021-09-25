@@ -1,3 +1,4 @@
+<!--suppress JSUnresolvedVariable -->
 <template lang="pug">
 .column-component
     template(v-for='section in sections')
@@ -56,7 +57,7 @@
                 div(v-if='item.keyAccomplishments')
                     h4 Key accomplishments:
                     ListComponent.text(
-                        v-if='!!(item.keyAccomplishments instanceof Array)',
+                        v-if='item.keyAccomplishments instanceof Array',
                         :list='item.keyAccomplishments'
                     )
                     p.text(v-else) {{ item.keyAccomplishments }}
@@ -76,7 +77,7 @@
                 div(v-if='item.keyAccomplishments')
                     h4 Key accomplishments:
                     ListComponent.text(
-                        v-if='!!(item.keyAccomplishments instanceof Array)',
+                        v-if='item.keyAccomplishments instanceof Array',
                         :list='item.keyAccomplishments'
                     )
                     p.text(v-else) {{ item.keyAccomplishments }}
@@ -94,10 +95,9 @@ import ListComponent from '@/components/RecursiveList.vue'
     components: {
         ListComponent,
     },
-    props: ['contacts', 'sections'],
+    props: ['sections'],
 })
 export default class ColumnComponent extends Vue {
-    contacts!: Record<string, unknown>
-    sections!: Record<string, unknown>
+    sections!: []
 }
 </script>
