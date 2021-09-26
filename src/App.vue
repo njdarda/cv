@@ -27,9 +27,9 @@ import { useMeta } from 'vue-meta'
 })
 export default class App extends Vue {
     cvData = require('@/data/njd.json')
-    themeColorIndex!: number
     interval!: number
     prefersReducedMotion = false
+    isHandheld = false
 
     meta = setup(() => {
         return useMeta(
@@ -49,21 +49,27 @@ export default class App extends Vue {
             }')`
         }
 
-        if (window.sessionStorage.getItem('lastThemeColorIndex') !== null) {
-            this.setThemeColor(parseInt(window.sessionStorage.getItem('lastThemeColorIndex') as string))
-        }
-
-        this.prefersReducedMotion = this.getPrefersReducedMotion()
+        this.prefersReducedMotion = this.mediaPrefersReducedMotion()
+        this.isHandheld = this.mediaIsHandheld()
     }
 
     mounted(): void {
-        let colorAnimationTime = parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000
-        if (this.cvData.themeColors.length > 1 && !this.prefersReducedMotion) {
-            this.interval = this.scrollAnimation(colorAnimationTime)
+        if (this.isHandheld || this.prefersReducedMotion) {
+            this.setThemeColor(0)
         } else {
-            setTimeout(() => {
-                this.setThemeColor(0)
-            }, colorAnimationTime)
+            let colorAnimationTime = parseFloat(this.cvData.cssVariables.colorAnimationTime) * 1000
+
+            if (window.sessionStorage.getItem('lastThemeColorIndex') !== null) {
+                this.setThemeColor(parseInt(window.sessionStorage.getItem('lastThemeColorIndex') as string))
+            }
+
+            if (this.cvData.themeColors.length > 1) {
+                this.interval = this.scrollAnimation(colorAnimationTime)
+            } else {
+                setTimeout(() => {
+                    this.setThemeColor(0)
+                }, colorAnimationTime)
+            }
         }
     }
 
@@ -73,29 +79,30 @@ export default class App extends Vue {
 
     // Methods
     scrollAnimation(colorAnimationTime: number): number {
-        let h = document.documentElement
-        let b = document.body
+        let wrapEl = document.documentElement
 
         return setInterval(() => {
-            let index = Math.ceil((h.scrollTop / (b.scrollHeight - h.clientHeight)) * this.cvData.themeColors.length)
+            let scrollPercentage = wrapEl.scrollTop / (wrapEl.scrollHeight - wrapEl.clientHeight)
+            let index = Math.ceil(scrollPercentage * this.cvData.themeColors.length)
             this.setThemeColor(index > 1 ? index - 1 : 0)
         }, colorAnimationTime)
     }
 
     setThemeColor(index: number): void {
-        if (index === this.themeColorIndex) {
-            return
-        }
         if (index >= this.cvData.themeColors.length) {
             index = 0
         }
-        this.themeColorIndex = index
         this.cvData.cssVariables.themeColor = this.cvData.themeColors[index]
         window.sessionStorage.setItem('lastThemeColorIndex', index.toString())
     }
 
-    getPrefersReducedMotion(): boolean {
-        const mediaQueryList = window.matchMedia('(prefers-reduced-motion: no-preference)')
+    mediaPrefersReducedMotion(): boolean {
+        const mediaQueryList = window.matchMedia('prefers-reduced-motion: reduce')
+        return mediaQueryList.matches
+    }
+
+    mediaIsHandheld(): boolean {
+        const mediaQueryList = window.matchMedia('screen and (hover: hover) and (pointer: fine)')
         return !mediaQueryList.matches
     }
 }

@@ -6,8 +6,8 @@
         .section-name.mb-2(v-if='section.name')
             h2 {{ section.name }}
 
-        div.contacts-container(v-if='section.contacts')
-            div.contact(v-for='contact in section.contacts')
+        .contacts-container(v-if='section.contacts')
+            .contact(v-for='contact in section.contacts')
                 a(
                     v-if='contact.link',
                     :href='contact.link',
@@ -39,7 +39,7 @@
             div(v-if='item.break', :class='"break-" + item.break')
 
             template(v-if='item.degree')
-                div.subsection-name.mb-1
+                .subsection-name.mb-1
                     h3
                         span.position {{ item.course }}
                         span
@@ -50,7 +50,7 @@
                 span.text {{ item.specialisation }}
 
             template(v-else-if='item.project')
-                div.subsection-name.mb-1
+                .subsection-name.mb-1
                     h3
                         span.project {{ item.project }}
                 h3.time {{ item.time }}
@@ -65,7 +65,7 @@
                 ListComponent.text(:list='item.features')
 
             template(v-else-if='item.position')
-                div.subsection-name.mb-1
+                .subsection-name.mb-1
                     h3
                         span.position {{ item.position }}
                         span

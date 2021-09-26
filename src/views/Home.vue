@@ -1,10 +1,10 @@
 <template lang="pug">
-#cv-app.container
-    div.header
+.page.container
+    .header
         HeaderComponent(ref='headerComponent', :header='cvData.header')
-    div.left-column(:class='cvData.header.photo ? "has-photo" : ""')
+    .left-column(:class='cvData.header.photo ? "has-photo" : ""')
         ColumnComponent(:sections='getSections("leftColumn")')
-    div.right-column
+    .right-column
         ColumnComponent(:sections='getSections("rightColumn")')
     footer#footer {{ cvData.footer }}
 </template>
@@ -47,16 +47,6 @@ export default class Home extends Vue {
                 sectionElement.classList.remove('init-animation')
             }
         }, 3 * baseAnimationTime)
-
-        let headerEl = (this.$refs.headerComponent as Vue).$el as Element
-
-        setTimeout(() => {
-            headerEl.classList.add('init-animation')
-        }, baseAnimationTime)
-
-        setTimeout(() => {
-            headerEl.classList.remove('init-animation')
-        }, 1.5 * baseAnimationTime)
     }
 
     getSections(sectionGroup: string): unknown[] {

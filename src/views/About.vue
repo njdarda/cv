@@ -1,5 +1,5 @@
 <template lang="pug">
-#cv-app.container
+.page.container
     h1 This is an about page
     p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 </template>

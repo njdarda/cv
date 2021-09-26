@@ -1,9 +1,9 @@
 <template lang="pug">
 .header-component(:class='header.photo ? "has-photo" : ""')
-    div.photo(v-if='header.photo')
+    .photo(v-if='header.photo')
         .image
         .shine
-    div.header-bar
+    .header-bar
         h1.name {{ header.name }}
         h2.mb-2(v-for='link in header.links')
             a(:href='link.url', :aria-label='link.name', target='_blank', rel='noopener')
