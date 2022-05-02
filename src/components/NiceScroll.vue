@@ -24,10 +24,6 @@ export default class NiceScrollComponent extends Vue {
     mounted(): void {
         this.niceEl = this.$refs.niceScrollbarElement as HTMLElement
 
-        if (!window.matchMedia('screen and (hover: hover) and (pointer: fine)').matches) {
-            return
-        }
-
         // todo:
         // if not placed in #app:
         //     this.wrapEl = this.$refs.niceScrollbarElement.parentElement as HTMLElement
@@ -148,8 +144,8 @@ export default class NiceScrollComponent extends Vue {
                 }
             })
 
-            this.suppressScrollHandler = true
-            this.wrapEl.scrollTop = 0
+            // this.suppressScrollHandler = true
+            // this.wrapEl.scrollTop = 0
         } else {
             this.setScrollbarHeight()
         }
@@ -166,19 +162,15 @@ export default class NiceScrollComponent extends Vue {
     scrollbar-width: none
 
 .nice-scrollbar
-    display: none
+    display: block
+    width: 12px
+    transition: background-color var(--color-animation-time) ease-in-out, opacity var(--color-animation-time) ease-in-out
+    background-color: var(--theme-color)
+    opacity: 1
+    position: fixed
+    right: 0
+    top: 0
 
-@media screen and (hover: hover) and (pointer: fine)
-    .nice-scrollbar
-        display: block
-        width: 12px
-        transition: background-color var(--color-animation-time) ease-in-out, opacity var(--color-animation-time) ease-in-out
-        background-color: var(--theme-color)
-        opacity: 1
-        position: fixed
-        right: 0
-        top: 0
-
-        &.scrollbar-invisible
-            opacity: 0
+    &.scrollbar-invisible
+        opacity: 0
 </style>

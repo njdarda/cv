@@ -6,7 +6,7 @@ metainfo(v-slot:title='{ content }')
 router-view(v-slot='{ Component }', :cvData='cvData', :prefersReducedMotion='prefersReducedMotion')
     transition(name='fade')
         component(:is='Component')
-NiceScrollComponent
+NiceScrollComponent(v-if='!isHandheld && !prefersReducedMotion')
 CssVariablesComponent(:cssVariables='cvData.cssVariables')
 </template>
 
@@ -34,7 +34,7 @@ export default class App extends Vue {
     meta = setup(() => {
         return useMeta(
             computed(() => ({
-                title: `CV - ${this.cvData.header.name}` ?? 'CV',
+                title: `CV - ${this.cvData.header.name}`,
                 description: `${this.cvData.header.name}'s Curriculum vitae`,
             })),
         )

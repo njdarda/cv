@@ -1,13 +1,19 @@
 @use '~bootstrap/scss/bootstrap' as b
+@use "../mixins"
 
 $spacer: b.$spacer
 
 .page > .header > .header-component
+  $photo-size: 18rem
+
   perspective: 180px
+  perspective-origin: calc(0.5 * #{$photo-size}) 50%
 
   &.has-photo
-    padding-top: calc(3.5 * #{$spacer})
-    padding-bottom: calc(2 * #{$spacer})
+    @media screen
+      +b.media-breakpoint-between(md, null)
+        padding-top: calc(3.5 * #{$spacer})
+        padding-bottom: calc(2 * #{$spacer})
 
   @media screen
     +b.media-breakpoint-between(null, md)
@@ -19,34 +25,31 @@ $spacer: b.$spacer
     +b.media-breakpoint-between(md, null)
       &:hover
         div.photo
-          transform: rotateX(0.5deg) scale(1.05)
-          box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
+          transform: rotateX(1.5deg) scale(1.05)
 
           & > .shine
             background-position-y: 80%
 
         div.header-bar
-          transform: rotateX(0.5deg) scale(1.05)
-          box-shadow: 0px 10px 44px -12px rgba(0, 0, 0, 100%)
+          transform: scale(1.025)
 
-  $photo-size: 18rem
+        div.header-bar::after,
+        div.photo::after
+          opacity: 1
 
   div.photo
     width: $photo-size
     height: $photo-size
     border-radius: 50%
-    border: 10px solid var(--theme-color)
-    background-color: b.$white
-    overflow: hidden
+    background-color: transparent
     position: absolute
     z-index: 1
     top: 0
     left: 0
 
-    transition: box-shadow calc(0.5 * var(--base-animation-time)) ease-in-out, transform calc(0.5 * var(--base-animation-time)) ease-in-out, border-color var(--color-animation-time) ease-in-out
+    transition: transform calc(0.5 * var(--base-animation-time)) ease-in-out
     transform: rotateX(0) scale(1)
-    transform-origin: 100% 100%
-    box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%)
+    transform-origin: 75% 100%
 
     @media screen
       +b.media-breakpoint-between(null, md)
@@ -64,32 +67,47 @@ $spacer: b.$spacer
     & > .image
       background-image: var(--photo)
       background-size: cover
+      border-radius: 50%
 
     & > .shine
       transition: background-position-y calc(0.5 * var(--base-animation-time)) ease-in-out
       background: linear-gradient(0deg, transparent 0%, transparent 34%, rgba(255, 255, 255, 10%) 36%, b.$white 80%)
       background-position-y: 100%
       background-size: 100% 300%
+      border-radius: 50%
 
   &.has-photo div.header-bar
-    margin-left: calc(0.5 * #{$photo-size})
-    width: calc(100% - 0.5 * #{$photo-size})
-    text-align: right
+    @media screen
+      +b.media-breakpoint-between(md, null)
+        margin-left: calc(0.5 * #{$photo-size})
+        width: calc(100% - 0.5 * #{$photo-size})
+        text-align: right
+
+  div.header-bar::after
+    +mixins.shadow-placeholder(1em, 0, calc(0.5 * var(--base-animation-time)))
+    +mixins.natural-shadow(0.24, 0, 0.04, 0.2)
+
+  div.photo::after
+    +mixins.shadow-placeholder(50%, 0, calc(0.5 * var(--base-animation-time)))
+    width: 98%
+    height: 98%
+    +mixins.natural-shadow(0.36, 0.2, 0.1, 0.8)
 
   div.header-bar
     color: white
     position: relative
     padding: b.$spacer
     background-color: var(--theme-color)
-    border-radius: 0.5em
     margin-bottom: calc(3 * #{$spacer})
+    backface-visibility: hidden
 
-    transition: box-shadow calc(0.5 * var(--base-animation-time)) ease-in-out, transform calc(0.5 * var(--base-animation-time)) ease-in-out, background-color var(--color-animation-time) ease-in-out
+    border-radius: 1em
+
+    transition: transform calc(0.5 * var(--base-animation-time)) ease-in-out, background-color var(--color-animation-time) ease-in-out
     background-position-y: 100%
     background-size: 100% 300%
 
-    transform: rotateX(0) scale(1)
-    box-shadow: 0px 10px 16px -12px rgba(0, 0, 0, 100%)
+    transform: scale(1)
 
     @media screen
       +b.media-breakpoint-between(null, md)

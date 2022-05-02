@@ -12,7 +12,11 @@ $spacer: b.$spacer
     position: fixed
     width: 100vw
     height: 100vh
-    background: radial-gradient(circle at center, b.$gray-100 35%, b.$gray-600 150%)
+    background-color: b.$gray-200
+
+#nav
+  z-index: 9999
+  position: fixed
 
 .page
   @media screen
@@ -21,7 +25,6 @@ $spacer: b.$spacer
     left: 50%
     transform: translateX(-50%)
     min-height: 100vh
-    box-shadow: 0px 0px 55px -40px b.$black
     backface-visibility: hidden
 
   background-color: b.$white
@@ -40,7 +43,9 @@ $spacer: b.$spacer
     grid-area: left-column
 
     &.has-photo
-      padding-top: calc(4 * #{$spacer})
+      @media screen
+        +b.media-breakpoint-between(md, null)
+          padding-top: calc(4 * #{$spacer})
 
     & > .column-component
       padding-right: calc(2 * #{$spacer})

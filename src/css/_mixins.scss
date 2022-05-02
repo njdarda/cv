@@ -1,0 +1,21 @@
+@mixin natural-shadow($strength, $x, $y, $l) {
+  box-shadow: calc(#{$x} * 2.8px)   calc(#{$y} * 2.8px)   calc(#{$l} * 2px)   rgba(0, 0, 0, calc(#{$strength} * 0.5)),
+              calc(#{$x} * 6.7px)   calc(#{$y} * 6.7px)   calc(#{$l} * 5px)   rgba(0, 0, 0, calc(#{$strength} * 0.75)),
+              calc(#{$x} * 12.5px)  calc(#{$y} * 12.5px)  calc(#{$l} * 10px)  rgba(0, 0, 0, calc(#{$strength} * 0.875)),
+              calc(#{$x} * 22.3px)  calc(#{$y} * 22.3px)  calc(#{$l} * 18px)  rgba(0, 0, 0, calc(#{$strength} * 0.95)),
+              calc(#{$x} * 41.8px)  calc(#{$y} * 41.8px)  calc(#{$l} * 34px)  rgba(0, 0, 0, calc(#{$strength} * 0.99)),
+              calc(#{$x} * 100px)   calc(#{$y} * 100px)   calc(#{$l} * 80px)  rgba(0, 0, 0, calc(#{$strength} * 1))
+}
+
+@mixin shadow-placeholder($border-radius: 0, $opacity: 1, $transition-duration: 0) {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: $border-radius;
+  opacity: $opacity;
+  transition: opacity $transition-duration ease-in-out
+}
