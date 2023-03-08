@@ -12,6 +12,10 @@ export default class SvgIconComponent extends Vue {
 
     // Hooks
     created(): void {
+        if (!this.icon) {
+            return
+        }
+
         import(
             /* webpackInclude: /\.svg$/ */
             /* webpackChunkName: "no-sw-precache\/svg-icons\/" */

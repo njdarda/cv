@@ -7,7 +7,7 @@
     },
     "header": {
         "name": "Jędrzej Darda",
-        "photo": null,
+        "photo": "145.jpg",
         "links": [
             {
                 "name": "Website",
@@ -27,9 +27,9 @@
             "contacts": [
                 {
                     "name": "Email",
-                    "value": "njdarda@gmail.com",
+                    "value": "njdarda@pm.me",
                     "icon": "envelope-fill",
-                    "link": "mailto:njdarda@gmail.com"
+                    "link": "mailto:njdarda@pm.me"
                 },
                 {
                     "name": "Phone",
@@ -88,6 +88,23 @@
         "experience": {
             "name": "Experience",
             "items": [
+                {
+                    "position": "PHP Developer / PHP Tech Lead",
+                    "place": "Printbox",
+                    "time": "07-2016 - 04-2020",
+                    "responsibilities": [
+                        {
+                            "name": "test",
+                            "children": [
+                                "test"
+                            ]
+                        },
+                        "test"
+                    ],
+                    "keyAccomplishments": [
+                        "TEST"
+                    ]
+                },
                 {
                     "position": "PHP Developer / PHP Tech Lead",
                     "place": "Printbox",

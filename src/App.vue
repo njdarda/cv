@@ -1,7 +1,4 @@
 <template lang="pug">
-#nav
-    router-link(to='/') Home
-    router-link(to='/about') About
 metainfo(v-slot:title='{ content }')
 router-view(v-slot='{ Component }', :cvData='cvData', :prefersReducedMotion='prefersReducedMotion')
     transition(name='fade')
