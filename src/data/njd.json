@@ -7,7 +7,7 @@
     },
     "header": {
         "name": "Jędrzej Darda",
-        "photo": "145.jpg",
+        "photo": null,
         "links": [
             {
                 "name": "Website",
@@ -89,20 +89,36 @@
             "name": "Experience",
             "items": [
                 {
-                    "position": "PHP Developer / PHP Tech Lead",
-                    "place": "Printbox",
-                    "time": "07-2016 - 04-2020",
+                    "position": "PHP Developer",
+                    "place": "NASK-PIB",
+                    "time": "10-2021 - present",
                     "responsibilities": [
                         {
-                            "name": "test",
+                            "name": "development of multiple web applications for Polish government agencies",
                             "children": [
-                                "test"
+                                "maintaining legacy code",
+                                "developing applications using Symfony 6",
+                                "providing RESTful apis using Symfony 6"
                             ]
                         },
-                        "test"
+                        {
+                            "name": "development of CI/CD system",
+                            "children": [
+                                "learning new tools - Kubernetes, Rancher, Helm",
+                                "adhering to Infrastructure as Code principles"
+                            ]
+                        },
+                        {
+                            "name": "organisation of the development team",
+                            "children": [
+                                "introducing good practices such as unit testing and code review",
+                                "working with scrum master to improve development process"
+                            ]
+                        }
                     ],
                     "keyAccomplishments": [
-                        "TEST"
+                        "After recognising the legacy system (developed by a third party, with no documentation) was too difficult to maintain in the longterm I proposed reimplementing it using Symfony 6. Following through with reimplementation resulted in a much faster development rate and higher code quality.",
+                        "In absence of DevOps support I took initiative and created a CI/CD system using available technology stack - GitLab, TeamCity, Helm, Rancher. It ended up being used for multiple projects within our team."
                     ]
                 },
                 {
@@ -143,7 +159,7 @@
                         "Pioneered and developed gitlab-CI based CI/CD system for development, testing and deployment of ecommerce application and its subprojects resulting in zero downtime upgrade and ability for other teams to instantly make changes without jeopardising applications' integrity.",
                         "Created a unified, watertight error reporting system, resulting in a dramatically more stable application.",
                         "Developed a complex, extensible voucher system integrated with Prestashop, financial reporting system and multiple APIs.",
-                        "Created a unified developer environment for 3 teams with different knowledge levels. Docker was chosen as it offers a (more or less) consistent behaviour across multiple operating systems. Created a documentation and organised training for all team members, which resulted in significantly more frictionless development across all 3 teams."
+                        "Created a unified developer environment for 3 teams with different knowledge levels using docker and docker-compose guaranteeing consistent behaviour across multiple operating systems. Created a documentation and organised training for all team members, which resulted in significantly more frictionless development across all 3 teams."
                     ]
                 },
                 {
@@ -203,11 +219,14 @@
                     "name": "Application deployment and maintenance",
                     "children": [
                         {"name": "GitlabCI", "professional": true},
+                        {"name": "Kubernetes", "professional": true},
+                        {"name": "Helm", "professional": true},
+                        {"name": "Rancher", "professional": true},
                         {"name": "Docker, Vagrant [unison, wsl, winnfsd]", "professional": true},
                         {"name": "Jenkins", "professional": true},
                         {"name": "teamcity", "professional": true},
                         {"name": "ansible", "professional": true},
-                        "terraform, kubernetes, helm",
+                        "terraform",
                         "Google Cloud Platform",
                         "Apache, nginx"
                     ]
@@ -244,7 +263,7 @@
             "class": "no-indent",
             "name": "Skills",
             "list": [
-                "Comprehensive knowledge about e-commerce applications and the business context",
+                "Comprehensive knowledge about e‑commerce applications and the business context",
                 "Knowledge of Google Analytics from both the programmer's and business' perspective",
                 "Ability to work within and lead a team of programmers",
                 {
@@ -295,7 +314,14 @@
         "meetings": {
             "class": "no-indent",
             "name": "Conferences",
-            "list": ["PHPers Kraków", "pykonik", "What the Hack 2018", "PHPERS SUMMIT 2019"]
+            "list": [
+                "PHPers Kraków",
+                "pykonik",
+                "What the Hack 2018",
+                "PHPERS SUMMIT 2019",
+                "SymfonyWorld Online 2022",
+                "SymfonyCon Disneyland Paris 2022"
+            ]
         },
         "languages": {
             "break": "page",
