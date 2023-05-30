@@ -171,6 +171,9 @@ export default class NiceScrollComponent extends Vue {
     right: 0
     top: 0
 
+    @media print
+        display: none
+
     &.scrollbar-invisible
         opacity: 0
 </style>

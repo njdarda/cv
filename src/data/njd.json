@@ -122,6 +122,7 @@
                     ]
                 },
                 {
+                    "break": "page",
                     "position": "PHP Developer / PHP Tech Lead",
                     "place": "Printbox",
                     "time": "07-2016 - 04-2020",
@@ -263,9 +264,10 @@
             "class": "no-indent",
             "name": "Skills",
             "list": [
-                "Comprehensive knowledge about e‑commerce applications and the business context",
-                "Knowledge of Google Analytics from both the programmer's and business' perspective",
+                "Openness and eagerness to learn new technologies, skills and techniques",
                 "Ability to work within and lead a team of programmers",
+                "Dedication to automatisation, process effectiveness optimisation",
+                "Solidity in applying good practices, dedication to creating readable, maintainable code",
                 {
                     "name": "Experience with every stage of creating web applications",
                     "children": [
@@ -274,11 +276,10 @@
                         "Deployment, maintenance of complex applications"
                     ]
                 },
+                "Comprehensive knowledge about e‑commerce applications and the business context",
                 "Vast experience with legacy code",
-                "Solidity in applying good practices, dedication to creating readable, maintainable code",
-                "Openness and eagerness to learn new technologies, skills and techniques",
                 "Dedication to designing accessible applications (knowledge of WAI-ARIA and good practices)",
-                "Dedication to automatisation, process effectiveness optimisation"
+                "Knowledge of Google Analytics from both the programmer's and business' perspective"
             ]
         },
         "education": {
@@ -355,35 +356,32 @@
                     "name": "Programming languages and related technologies",
                     "children": [
                         {
-                            "name": "PHP [5.6, 7, excited for 8]",
+                            "name": "PHP [5.6, 7, 8]",
                             "children": [
                                 {
-                                    "name": "Symfony2, Symfony3",
+                                    "name": "Symfony 2 - 6",
                                     "professional": true
                                 },
                                 {"name": "Prestashop", "professional": true},
-                                {"name": "Doctrine 2", "professional": true},
-                                {"name": "Propel", "professional": true},
+                                {"name": "Doctrine", "professional": true},
                                 {"name": "Zend 2", "professional": true},
                                 {"name": "Smarty", "professional": true},
                                 {"name": "Twig", "professional": true},
                                 {"name": "XDebug", "professional": true},
                                 {"name": "Composer", "professional": true},
                                 {"name": "OPcache", "professional": true},
-                                {"name": "Resque (Redis)", "professional": true}
+                                {"name": "Redis", "professional": true}
                             ]
                         },
                         {
-                            "name": "JS [ES5, ES6]",
+                            "name": "JavaScript",
                             "children": [
                                 {
-                                    "name": "vue2",
-                                    "children": ["vue-bootstrap"]
+                                    "name": "vue2, vue3"
                                 },
                                 {"name": "jQuery", "professional": true},
                                 {"name": "NodeJS/npm", "professional": true, "children": ["express"]},
                                 {"name": "AngularJS 1.5", "professional": true},
-                                "Mithril",
                                 {"name": "Gulp", "professional": true},
                                 "Webpack"
                             ]
