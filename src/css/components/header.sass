@@ -10,8 +10,7 @@ $spacer: b.$spacer
   perspective-origin: calc(0.5 * #{$photo-size}) 50%
 
   &.has-photo
-    @media screen
-      +b.media-breakpoint-between(md, null)
+    @media print, screen and (min-width: map-get(b.$grid-breakpoints, "md"))
         padding-top: calc(3.5 * #{$spacer})
         padding-bottom: calc(2 * #{$spacer})
 
@@ -77,8 +76,7 @@ $spacer: b.$spacer
       border-radius: 50%
 
   &.has-photo div.header-bar
-    @media screen
-      +b.media-breakpoint-between(md, null)
+    @media print, screen and (min-width: map-get(b.$grid-breakpoints, "md"))
         margin-left: calc(0.5 * #{$photo-size})
         width: calc(100% - 0.5 * #{$photo-size})
         text-align: right

@@ -91,7 +91,7 @@
                 {
                     "position": "PHP Developer",
                     "place": "NASK-PIB",
-                    "time": "10-2021 - 06-2023",
+                    "time": "10-2021 — 06-2023",
                     "responsibilities": [
                         {
                             "name": "development of multiple web applications for Polish government agencies",
@@ -105,27 +105,30 @@
                             "name": "development of CI/CD system",
                             "children": [
                                 "learning new tools - Kubernetes, Rancher, Helm",
-                                "adhering to Infrastructure as Code principles"
+                                "adhering to Infrastructure as Code principles",
+                                "added end-to-end testing to CI/CD pipeline",
+                                "added metrics tracking e.g. unit test coverage, static analysis violations"
                             ]
                         },
                         {
                             "name": "organisation of the development team",
                             "children": [
                                 "introducing good practices such as unit testing and code review",
+                                "introducing static analysis tools (PhpStan, Psalm) to improve code quality",
                                 "working with scrum master to improve development process"
                             ]
                         }
                     ],
                     "keyAccomplishments": [
                         "After recognising the legacy system (developed by a third party, with no documentation) was too difficult to maintain in the longterm I proposed reimplementing it using Symfony 6. Following through with reimplementation resulted in a much faster development rate and higher code quality.",
-                        "In absence of DevOps support I took initiative and created a CI/CD system using available technology stack - GitLab, TeamCity, Helm, Rancher. It ended up being used for multiple projects within our team."
+                        "In absence of DevOps support I took the initiative and created a CI/CD system using available technology stack - GitLab, TeamCity, Helm, Rancher. It ended up being used for multiple projects within our team."
                     ]
                 },
                 {
                     "break": "page",
                     "position": "PHP Developer / PHP Tech Lead",
                     "place": "Printbox",
-                    "time": "07-2016 - 04-2020",
+                    "time": "07-2016 — 04-2020",
                     "responsibilities": [
                         {
                             "name": "leading a 5-person PHP team",
@@ -167,7 +170,7 @@
                     "break": "page",
                     "position": "PHP Developer",
                     "place": "Boostcom",
-                    "time": "01-2016 - 04-2016",
+                    "time": "01-2016 — 04-2016",
                     "responsibilities": [
                         "maintenance of an undocumented legacy information service integrated with multiple external APIs",
                         "adding functionalities to REST API based administration panel of a loyalty application"
@@ -177,7 +180,7 @@
                 {
                     "position": "Junior PHP Developer",
                     "place": "Quatronet",
-                    "time": "09.2015 - 01-2016",
+                    "time": "09.2015 — 01-2016",
                     "responsibilities": [
                         "development of a Prestashop based e-commerce website based on specification and design"
                     ],
@@ -219,14 +222,16 @@
                 {
                     "name": "Application deployment and maintenance",
                     "children": [
+                        {"name": "GitHub Actions", "professional": true},
                         {"name": "GitlabCI", "professional": true},
                         {"name": "Kubernetes", "professional": true},
                         {"name": "Helm", "professional": true},
                         {"name": "Rancher", "professional": true},
-                        {"name": "Docker, Vagrant [unison, wsl, winnfsd]", "professional": true},
+                        {"name": "Docker", "professional": true},
                         {"name": "Jenkins", "professional": true},
                         {"name": "teamcity", "professional": true},
                         {"name": "ansible", "professional": true},
+                        "Amazon Lightsail",
                         "terraform",
                         "Google Cloud Platform",
                         "Apache, nginx"
@@ -265,8 +270,8 @@
             "name": "Skills",
             "list": [
                 "Openness and eagerness to learn new technologies, skills and techniques",
-                "Ability to work within and lead a team of programmers",
                 "Dedication to automatisation, process effectiveness optimisation",
+                "Ability to work within and lead a team of programmers",
                 "Solidity in applying good practices, dedication to creating readable, maintainable code",
                 {
                     "name": "Experience with every stage of creating web applications",
@@ -288,7 +293,7 @@
                 {
                     "degree": "Bachelor's degree",
                     "place": "UEK",
-                    "time": "2009 - 2014",
+                    "time": "2009 — 2014",
                     "course": "Finances & Accounting",
                     "specialisation": "Financial Markets"
                 }

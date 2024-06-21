@@ -43,9 +43,8 @@ $spacer: b.$spacer
     grid-area: left-column
 
     &.has-photo
-      @media screen
-        +b.media-breakpoint-between(md, null)
-          padding-top: calc(4 * #{$spacer})
+      @media print, screen and (min-width: map-get(b.$grid-breakpoints, "md"))
+        padding-top: calc(4 * #{$spacer})
 
     & > .column-component
       padding-right: calc(2 * #{$spacer})

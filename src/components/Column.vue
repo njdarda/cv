@@ -20,7 +20,7 @@
                 template(v-else)
                     span.badge.me-2.mb-2.align-middle
                         svg-icon(:icon='contact.icon')
-                h3 {{ contact.value }}
+                h3(:style='"font-size: " + contact.fontSize') {{ contact.value }}
 
         template(v-else-if='section.languages')
             ul.text.no-indent
@@ -35,18 +35,17 @@
                     li(v-for='courseName in course.children')
                         | {{ courseName }}
 
-        template(v-else-if='section.items', v-for='item in section.items')
+        template(v-else-if='section.items', v-for='(item, index) in section.items')
             div(v-if='item.break', :class='"break-" + item.break')
 
             template(v-if='item.degree')
-                .subsection-name.mb-1
+                .subsection-name.mb-1(:class="{ 'mt-4': index !== 0 }")
                     h3
-                        span.position {{ item.course }}
-                        span
-                            |
-                            | • {{ item.place }}
+                        span {{ item.place }}
                 h3.time {{ item.time }}
                 h4 {{ item.degree }}:
+                span.position(v-if ='item.course')
+                    | {{ item.course }}:!{' '}
                 span.text {{ item.specialisation }}
 
             template(v-else-if='item.project')
@@ -65,7 +64,7 @@
                 ListComponent.text(:list='item.features')
 
             template(v-else-if='item.position')
-                .subsection-name.mb-1
+                .subsection-name.mb-1(:class="{ 'mt-4': index !== 0 }")
                     h3
                         span.position {{ item.position }}
                         span
